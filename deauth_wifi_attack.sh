@@ -1,5 +1,8 @@
 #!/bin/bash
 
+##Author : Paranoid Ninja
+##Email : paranoidninja@protonmail.com
+
 ifconfig wlan1 up
 src_mac=`ifconfig wlan1 | awk '/ether/ {print $2}'`
 ifconfig wlan1 down
