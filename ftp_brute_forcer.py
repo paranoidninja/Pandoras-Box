@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
+##Author : Paranoid Ninja
+##Email  : paranoidninja@protonmail.com
 
-__author__ = 'paranoidninja'
 
 import argparse
 import sys
