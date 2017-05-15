@@ -44,8 +44,6 @@ args = parser.parse_args()
 subprocess.call('clear', shell=True)
 print(logo)
 
-#capData = "capData.txt"
-
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)	#Relese binded socket on exit
 server.bind((args.l, args.p))
