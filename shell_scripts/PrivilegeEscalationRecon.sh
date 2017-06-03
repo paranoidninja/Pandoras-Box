@@ -143,6 +143,8 @@ echo -e "\n---+++--- WRITABLE LOCATIONS ---+++---\n" | tee -a $WRITEXEC_INFO
 find / -writable -type d 2>/dev/null >> $WRITEXEC_INFO
 find / -perm -222 -type d 2>/dev/null >> $WRITEXEC_INFO
 find / -perm -o w -type d 2>/dev/null >> $WRITEXEC_INFO
+echo -e "\n---+++--- WRITABLE FILES ---+++---\n" | tee -a $WRITEXEC_INFO
+find / -perm -2 ! -type l -ls 2>/dev/null >> $WRITEXEC_INFO
 echo -e "\n---+++--- EXECUTABLE LOCATIONS ---+++---\n" | tee -a $WRITEXEC_INFO
 find / -perm -o x -type d 2>/dev/null >> $WRITEXEC_INFO
 find / \( -perm -o w -perm -o x \) -type d 2>/dev/null >> $WRITEXEC_INFO
