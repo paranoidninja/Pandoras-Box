@@ -29,10 +29,6 @@ cat /etc/*-release >> $OS_INFO
 echo -e "\n++++++++++ Collecting Kernel Info ++++++++++\n"
 cat /proc/version >> $KERNEL_INFO
 echo -e "\n--------------------------------\n"
-uname -a >> $KERNEL_INFO
-echo -e "\n--------------------------------\n"
-uname -mrs >> $KERNEL_INFO
-echo -e "\n--------------------------------\n"
 dmesg | grep Linux >> $KERNEL_INFO
 echo -e "\n--------------------------------\n"
 ls /boot | grep vmlinuz- >> $KERNEL_INFO
@@ -56,14 +52,6 @@ cat /etc/services >> $PROCESS_INFO
 echo -e "\n--------------------------------\n"
 ps -ef >> $PROCESS_INFO
 
-echo -e "\n++++++++++ Collecting Applications Installed Info ++++++++++\n"
-echo -e "\n---+++--- ALL BINARIES ---+++---\n" | tee -a $APPS_INSTALLED
-ls -alh /usr/bin/ >> $APPS_INSTALLED
-echo -e "\n---+++--- SECURE BINARIES ---+++---\n" | tee -a $APPS_INSTALLED
-ls -alh /sbin/ >> $APPS_INSTALLED
-echo -e "\n---+++--- APPS INSTALLED ---+++---\n" | tee -a $APPS_INSTALLED
-dpkg -l >> $APPS_INSTALLED
-
 echo -e "\n++++++++++ Reading Cron Jobs ++++++++++\n"
 crontab -l >> $CRON_JOBS
 echo -e "\n--------------------------------\n"
@@ -84,11 +72,8 @@ netstat -antpx >> $CONNECTION_INFO
 echo -e "\n--------------------------------\n"
 netstat -tulpn >> $CONNECTION_INFO
 
-echo -e "\n++++++++++ Collecting Passwd AND Sudoers Info ++++++++++\n"
 echo -e "\n---+++--- PASSWD INFO ---+++---\n" | tee -a $PASSUDO_INFO
 cat /etc/passwd >> $PASSUDO_INFO
-echo -e "\n---+++--- SUDOERS INFO ---+++---\n" | tee -a $PASSUDO_INFO
-cat /etc/sudoers >> $PASSUDO_INFO
 
 echo -e "\n++++++++++ Collecting SSH Info ++++++++++\n"
 echo -e "\n---+++--- AUTHORIZED KEYS ---+++---\n" | tee -a $SSH_INFO
@@ -122,16 +107,6 @@ cat /etc/ssh/ssh_host_key.pub >> $SSH_INFO
 echo -e "\n---+++--- SSH HOST PRIVATE KEY ---+++---\n" | tee -a $SSH_INFO
 cat /etc/ssh/ssh_host_key >> $SSH_INFO
 
-echo -e "\n++++++++++ Reading Logs ++++++++++\n"
-echo -e "\n---+++--- APACHE ACCESS LOGS ---+++---\n" | tee -a $LOG_INFO
-cat /var/log/apache2/access_log >> $LOG_INFO
-echo -e "\n---+++--- AUTH LOGS ---+++---\n" | tee -a $LOG_INFO
-cat /var/log/auth.log >> $LOG_INFO
-echo -e "\n---+++--- FAIL LOGS ---+++---\n" | tee -a $LOG_INFO
-cat /var/log/faillog >> $LOG_INFO
-echo -e "\n---+++--- SYSLOGS ---+++---\n" | tee -a $LOG_INFO
-cat /var/log/syslog >> $LOG_INFO
-
 echo -e "\n++++++++++ Reading Partitions ++++++++++\n"
 echo -e "\n---+++--- MOUNTED PARTITIONS ---+++---\n" | tee -a $PARTITION_INFO
 df -h >> $PARTITION_INFO
@@ -139,12 +114,18 @@ echo -e "\n---+++--- ALL PARTITIONS ---+++---\n" | tee -a $PARTITION_INFO
 cat /etc/fstab >> $PARTITION_INFO
 
 echo -e "\n++++++++++ Reading All Write and Execute Locations ++++++++++\n"
-echo -e "\n---+++--- WRITABLE LOCATIONS ---+++---\n" | tee -a $WRITEXEC_INFO
+echo -e "\n---+++--- WRITABLE Directories ---+++---\n" | tee -a $WRITEXEC_INFO
 find / -writable -type d 2>/dev/null >> $WRITEXEC_INFO
 find / -perm -222 -type d 2>/dev/null >> $WRITEXEC_INFO
 find / -perm -o w -type d 2>/dev/null >> $WRITEXEC_INFO
+find / -perm -777 -type d 2>/dev/null >> $WRITEXEC_INFO
+find / -perm -4000 -type d 2>/dev/null >> $WRITEXEC_INFO
 echo -e "\n---+++--- WRITABLE FILES ---+++---\n" | tee -a $WRITEXEC_INFO
-find / -perm -2 ! -type l -ls 2>/dev/null >> $WRITEXEC_INFO
+find / -perm -2 ! -type f -ls 2>/dev/null >> $WRITEXEC_INFO
+find / -perm -777 -type f 2>/dev/null >> $WRITEXEC_INFO
+find / -perm -4000 -type f 2>/dev/null >> $WRITEXEC_INFO
+find / perm /u=s -user `whoami` 2>/dev/null >> $WRITEXEC_INFO
+find / perm /u=s -type d -user `whoami` 2>/dev/null >> $WRITEXEC_INFO
 echo -e "\n---+++--- EXECUTABLE LOCATIONS ---+++---\n" | tee -a $WRITEXEC_INFO
 find / -perm -o x -type d 2>/dev/null >> $WRITEXEC_INFO
 find / \( -perm -o w -perm -o x \) -type d 2>/dev/null >> $WRITEXEC_INFO
