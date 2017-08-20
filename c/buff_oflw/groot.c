@@ -1,3 +1,5 @@
+/* Loading shellcode in environment variables. The variable here is GROOT */
+
 #include <unistd.h>
 #define NOP 0x90
 

@@ -1,3 +1,5 @@
+/*Get GROOT variable's address. Use this address to insert into shellcode */
+
 #include <unistd.h>
 
 int main(void)
