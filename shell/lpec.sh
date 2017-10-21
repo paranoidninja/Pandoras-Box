@@ -1,5 +1,10 @@
 #!/bin/bash
 
+##Author : Paranoid Ninja
+##Email  : paranoidninja@protonmail.com
+##Descr  : Linux/Unix Privilege Escalation Recon Script
+
+
 SYSINFO() {
     echo -e "\n\n`tput setaf 3`[*] ENUMERATING BASIC SYSTEM INFO...
     [-] Operating System:\n`tput sgr0;cat /etc/issue`

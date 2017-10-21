@@ -1,5 +1,9 @@
 #!/bin/bash
 
+##Author : Paranoid Ninja
+##Email  : paranoidninja@protonmail.com
+##Descr  : Script to find IP using Mac Address
+
 #Change the Interface adapter and the mac id in particular areas for it to work.
 #I am too lazy to modify them here
 

@@ -2,6 +2,7 @@
 
 ##Author : Paranoid Ninja
 ##Email  : paranoidninja@protonmail.com
+##Descr  : Keylogger Server to listen to incoming packets
 
 import socket
 import threading

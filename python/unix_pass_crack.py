@@ -2,6 +2,7 @@
 
 ##Author : Paranoid Ninja
 ##Email  : paranoidninja@protonmail.com
+##Descr  : Unix Hash password cracking tool
 
 import crypt
 import optparse

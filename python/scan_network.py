@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+##Author : Paranoid Ninja
+##Email  : paranoidninja@protonmail.com
+##Descr  : Scan Wireless and Ethernet Interface
+
 #Change network interface if not working
 
 from scapy.all import arping

@@ -3,6 +3,8 @@
 
 ##Author : Paranoid Ninja
 ##Email  : paranoidninja@protonmail.com
+##Descr  : Quick Wireless Deauth/DOS Script
+
 
 ifconfig wlan1 up
 src_mac=`ifconfig wlan1 | awk '/ether/ {print $2}'`

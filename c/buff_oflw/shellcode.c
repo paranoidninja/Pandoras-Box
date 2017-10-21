@@ -1,4 +1,6 @@
-/*Quick Shellcode test*/
+/*Author : Paranoid Ninja*/
+/*Email  : paranoidninja@protonmail.com*/
+/*Descr  : Quick Shellcode test*/
 
 #include <stdio.h>
 #include <string.h>

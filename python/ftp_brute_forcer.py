@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
+
 ##Author : Paranoid Ninja
 ##Email  : paranoidninja@protonmail.com
-
+##Descr  : FTP brute forcing tool
 
 import argparse
 import sys

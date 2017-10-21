@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+##Author : Paranoid Ninja
+##Email  : paranoidninja@protonmail.com
+##Descr  : Simple script to modify and test Buffer Overflows
+
 import socket
 
 buffer = "A"*10000
