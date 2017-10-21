@@ -4,7 +4,7 @@
 #include <string.h>
 
 unsigned char code[] = \
-"";
+"Insert SHELLCODE Here";
 
 main() {
 	printf("Shellcode Length: %d\n", strlen(code));
