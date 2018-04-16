@@ -1,4 +1,1 @@
-This repo contains shell and python scripts pertaining to Nethunter.
-
-#Ducky Scripts
-This Directory contains Rubber Ducky scripts pertaining to Nethunter. There is no need to convert this to any other format. Just copy it to your sdcard and execute it via Nethunter.
+This repo will contain random scripts that I used/use during my offensive testing. It can contain scripts ranging from extremely stupid and basic stuf to some extremely awesome and elite stuff.... Stay tuned :)
