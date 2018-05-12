@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<package id="manifest-0-033-6424-b3cee3">
+    <release tarname="libiconv-1.14-3-mingw32-dll-2.tar" />
+    <references>
+        <sysroot id="sysroot-0-002-a7c6-d7dbb5" />
+    </references>
+    <manifest>
+        <dir path="bin" />
+        <file path="bin/libcharset-1.dll" />
+        <file path="bin/libiconv-2.dll" />
+    </manifest>
+</package>

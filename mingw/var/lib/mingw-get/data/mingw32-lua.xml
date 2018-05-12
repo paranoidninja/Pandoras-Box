@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2012021600">
+
+  <!-- File: mingw32-lua.xml ~~ Lua Embedded Scripting Language Interface -->
+
+  <package-collection subsystem="mingw32">
+    <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
+
+    <package name="mingw32-lua" alias="lua">
+      <affiliate group="MinGW Supplementary Libraries" />
+
+      <description lang="en" title="Lua Embedded Scripting Language Interface">
+        <paragraph>
+          Lua is a powerful, light-weight programming language designed
+          for extending applications.  Lua is also frequently used as a
+          general-purpose, stand-alone language.  Lua is free software.
+        </paragraph>
+        <paragraph>
+          For complete information, visit Lua's web site at http://www.lua.org/
+          For an executive summary, see http://www.lua.org/about.html
+        </paragraph>
+        <paragraph>
+          Lua has been used in many different projects around the world.
+          For a short list, see http://www.lua.org/uses.html
+        </paragraph>
+      </description>
+
+      <source tarname="lua-%-mingw32-%-src.tar.%" />
+      <licence tarname="lua-%-mingw32-%-lic.tar.%" />
+
+      <component class="bin">
+        <release tarname="lua-5.2.0-1-mingw32-bin.tar.xz">
+          <requires eq="lua-%-mingw32-dll-52.tar" />
+        </release>
+        <release tarname="lua-5.1.4-4-mingw32-bin.tar.xz">
+          <requires eq="lua-%-mingw32-dll-51.tar" />
+        </release>
+      </component>
+
+      <component class="dll">
+        <release tarname="lua-5.2.0-1-mingw32-dll-52.tar.xz" />
+        <release tarname="lua-5.1.4-4-mingw32-dll-51.tar.xz" />
+      </component>
+
+      <component class="dev">
+        <release tarname="lua-5.2.0-1-mingw32-dev.tar.xz" />
+        <release tarname="lua-5.1.4-4-mingw32-dev.tar.xz" />
+      </component>
+
+      <component class="lic">
+        <release tarname="lua-5.2.0-1-mingw32-lic.tar.xz" />
+        <release tarname="lua-5.1.4-4-mingw32-lic.tar.xz" />
+      </component>
+
+      <component class="man">
+        <release tarname="lua-5.2.0-1-mingw32-man.tar.xz" />
+        <release tarname="lua-5.1.4-4-mingw32-man.tar.xz" />
+      </component>
+
+      <component class="doc">
+        <release tarname="lua-5.2.0-1-mingw32-doc.tar.xz" />
+        <release tarname="lua-5.1.4-4-mingw32-doc.tar.xz" />
+      </component>
+    </package>
+
+  </package-collection>
+</software-distribution>
+<!-- vim: set nocompatible expandtab fileformat=unix textwidth=82 tabstop=2 shiftwidth=2: -->

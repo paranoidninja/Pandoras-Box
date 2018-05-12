@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<package id="manifest-0-035-70aa-ea3d52">
+    <release tarname="gcc-objc-6.3.0-1-mingw32-bin.tar.xz" />
+    <references>
+        <sysroot id="sysroot-0-002-a7c6-d7dbb5" />
+    </references>
+    <manifest>
+        <file path="libexec/gcc/mingw32/6.3.0/cc1obj.exe" />
+        <file path="libexec/gcc/mingw32/6.3.0/cc1objplus.exe" />
+        <dir path="lib/gcc/mingw32/6.3.0/include/objc" />
+        <file path="lib/gcc/mingw32/6.3.0/include/objc/objc-exception.h" />
+        <file path="lib/gcc/mingw32/6.3.0/include/objc/objc-sync.h" />
+        <file path="lib/gcc/mingw32/6.3.0/include/objc/thr.h" />
+        <file path="lib/gcc/mingw32/6.3.0/include/objc/Protocol.h" />
+        <file path="lib/gcc/mingw32/6.3.0/include/objc/NXConstStr.h" />
+        <file path="lib/gcc/mingw32/6.3.0/include/objc/objc.h" />
+        <file path="lib/gcc/mingw32/6.3.0/include/objc/runtime.h" />
+        <file path="lib/gcc/mingw32/6.3.0/include/objc/Object.h" />
+        <file path="lib/gcc/mingw32/6.3.0/include/objc/message.h" />
+        <file path="lib/gcc/mingw32/6.3.0/include/objc/objc-decls.h" />
+        <file path="lib/gcc/mingw32/6.3.0/libobjc.a" />
+        <file path="lib/gcc/mingw32/6.3.0/libobjc.dll.a" />
+    </manifest>
+</package>

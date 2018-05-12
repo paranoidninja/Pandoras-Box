@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<package id="manifest-0-035-64ee-5e9a5a">
+    <release tarname="libisl-0.18-1-mingw32-dll-15.tar.xz" />
+    <references>
+        <sysroot id="sysroot-0-002-a7c6-d7dbb5" />
+    </references>
+    <manifest>
+        <file path="bin/libisl-15.dll" />
+    </manifest>
+</package>

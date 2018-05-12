@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2013102800">
+
+  <!-- File: mingw32-xerces-c.xml ~~ Xerces-C++ Validating XML Parser Library -->
+
+  <package-collection subsystem="mingw32">
+    <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
+
+    <package name="mingw32-xerces-c" alias="xerces-c">
+      <affiliate group="MinGW Contributed Applications" />
+
+      <description lang="en" title="Xerces-C++ Validating XML Parser Library">
+        <paragraph>
+          Xerces-C++ is a validating XML parser written in a portable subsets
+          of C++.  Xerces-C++ makes it easy to give your application the ability
+          to read and write XML data.  A shared library is provided for parsing,
+          generating, manipulating, and validating XML documents using the DOM,
+          SAX, and SAX2 APIs.
+        </paragraph>
+        <paragraph>
+          Xerces-C++ is faithful to the XML 1.0 recommendation and many associated
+          standards.
+        </paragraph>
+        <paragraph>
+          The parser provides high performance, modularity, and scalability.
+          Source code, samples and API documentation are provided with the parser.
+          For portability, care has been taken to make minimal use of templates,
+          no RTTI, and minimal use of #ifdefs.
+        </paragraph>
+      </description>
+
+      <source tarname="xerces-c-%-mingw32-%-src.tar.%" />
+      <licence tarname="xerces-c-%-mingw32-%-lic.tar.%" />
+
+      <component class="bin">
+        <description lang="en" title="Xerces-C++ Validating XML Parsing Utilities">
+          <paragraph>
+            This component package provides a suite of precompiled sample
+            programs, as included in the standard Xerces-C++ distribution.
+          </paragraph>
+        </description>
+        <release tarname="xerces-c-3.1.1-2-mingw32-4.7.2-bin.tar.xz" />
+        <release tarname="xerces-c-3.1.1-1-mingw32-3.4.5-bin.tar.xz" />
+        <requires eq="xerces-c-%-mingw32-%-dll-3.tar.%" />
+      </component>
+
+      <component class="dll">
+        <description lang="en">
+          <paragraph>
+            This component package provides the shared library (DLL), which
+            is required by all dynamically linked Xerces-C++ applications.
+          </paragraph>
+          <paragraph>
+            The version 3.1.1-2 release of this shared library has been
+            compiled using MinGW32-GCC-4.7.2, and uses the Dwarf-2 exception
+            handling model; the version 3.1.1-1 release has been compiled using
+            MinGW32-GCC-3.4.5, and uses the SJLJ exception handling model.
+          </paragraph>
+        </description>
+        <release tarname="xerces-c-3.1.1-2-mingw32-4.7.2-dll-3.tar.xz" />
+        <release tarname="xerces-c-3.1.1-1-mingw32-3.4.5-dll-3.tar.xz" />
+      </component>
+
+      <component class="dev">
+        <description lang="en">
+          <paragraph>
+            This component package provides the development libraries, and
+            their associated header files, to facilitate the development of
+            dynamically or statically linked Xerces-C++ applications.
+          </paragraph>
+          <paragraph>
+            For programming guidance, please refer to
+            http://xerces.apache.org/xerces-c/program-3.html
+          </paragraph>
+        </description>
+        <release tarname="xerces-c-3.1.1-2-mingw32-4.7.2-dev.tar.xz" />
+        <release tarname="xerces-c-3.1.1-1-mingw32-3.4.5-dev.tar.xz" />
+      </component>
+
+      <component class="lic">
+        <description lang="en">
+          <paragraph>
+            This component package delivers a copy of the Apache Software
+            License, version 2.0, under which Xerces-C++ is distributed,
+            and associated accreditation of Xerces-C++ developers. 
+          </paragraph>
+        </description>
+        <release tarname="xerces-c-3.1.1-mingw32-lic.tar.xz" />
+      </component>
+    </package>
+
+  </package-collection>
+</software-distribution>
+
+<!-- vim: set expandtab textwidth=82 tabstop=2 shiftwidth=2: -->
+<!-- vim: set nocompatible fileformat=unix: -->

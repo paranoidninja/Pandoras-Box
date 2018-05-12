@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2018011700">
+
+  <!-- File: msys-package-list.xml -->
+
+  <!-- This is a preliminary catalogue describing the contents of the
+       MSYS distribution. -->
+
+  <package-group-hierarchy>
+    <package-group name="MSYS" expand="true">
+      <package-group name="MSYS Base System" />
+      <package-group name="MinGW Developer Toolkit" />
+      <package-group name="MSYS System Builder" />
+    </package-group>
+  </package-group-hierarchy>
+
+  <!-- "real" packages ~~ those commented out are yet to be published -->
+  <package-list issue="2012073100" catalogue="msys-autoconf" />
+  <package-list issue="2012073100" catalogue="msys-autogen" />
+  <package-list issue="2012073100" catalogue="msys-automake" />
+  <package-list issue="2014101900" catalogue="msys-bash" />
+  <package-list issue="2010090600" catalogue="msys-binutils" />
+  <package-list issue="2012073100" catalogue="msys-bison" />
+  <package-list issue="2013020400" catalogue="msys-bzip2" />
+  <package-list issue="2012073100" catalogue="msys-console" />
+  <package-list issue="2016071500" catalogue="msys-core" />
+  <package-list issue="2012073100" catalogue="msys-coreutils" />
+  <package-list issue="2012073100" catalogue="msys-crypt" />
+  <package-list issue="2012073100" catalogue="msys-cvs" />
+  <package-list issue="2012073100" catalogue="msys-cygutils" />
+  <package-list issue="2012073100" catalogue="msys-dash" />
+  <package-list issue="2012073100" catalogue="msys-diffutils" />
+  <package-list issue="2012073100" catalogue="msys-diffstat" />
+  <package-list issue="2017122200" catalogue="msys-dos2unix" />
+  <package-list issue="2012073100" catalogue="msys-expat" />
+  <package-list issue="2012073100" catalogue="msys-file" />
+  <package-list issue="2012073100" catalogue="msys-findutils" />
+  <package-list issue="2012073100" catalogue="msys-flex" />
+  <package-list issue="2012073100" catalogue="msys-gawk" />
+  <package-list issue="2013101200" catalogue="msys-gcc" />
+  <package-list issue="2012073100" catalogue="msys-gdbm" />
+  <package-list issue="2012073100" catalogue="msys-gettext" />
+  <package-list issue="2012073100" catalogue="msys-gmp" />
+  <package-list issue="2012073100" catalogue="msys-grep" />
+  <package-list issue="2012073100" catalogue="msys-groff" />
+  <package-list issue="2012073100" catalogue="msys-guile" />
+  <package-list issue="2012073100" catalogue="msys-gzip" />
+  <package-list issue="2012073100" catalogue="msys-help2man" />
+  <package-list issue="2012073100" catalogue="msys-inetutils" />
+  <package-list issue="2012073100" catalogue="msys-less" />
+  <package-list issue="2012073100" catalogue="msys-libarchive" />
+  <package-list issue="2012073100" catalogue="msys-libiconv" />
+  <package-list issue="2012073100" catalogue="msys-libtool" />
+  <package-list issue="2012073100" catalogue="msys-libxml2" />
+  <package-list issue="2012073100" catalogue="msys-lndir" />
+  <package-list issue="2012073100" catalogue="msys-lpr-enhanced" />
+  <package-list issue="2013022400" catalogue="msys-m4" />
+  <package-list issue="2012073100" catalogue="msys-make" />
+  <package-list issue="2012073100" catalogue="msys-man" />
+  <package-list issue="2012073100" catalogue="msys-minires" />
+  <package-list issue="2012073100" catalogue="msys-mintty" />
+  <package-list issue="2012073100" catalogue="msys-mktemp" />
+  <package-list issue="2012073100" catalogue="msys-openssh" />
+  <package-list issue="2012073100" catalogue="msys-openssl" />
+  <package-list issue="2012073100" catalogue="msys-patch" />
+  <package-list issue="2013101200" catalogue="msys-perl" />
+  <package-list issue="2012073100" catalogue="msys-popt" />
+  <package-list issue="2012073100" catalogue="msys-rebase" />
+  <package-list issue="2012073100" catalogue="msys-regex" />
+  <package-list issue="2012073100" catalogue="msys-rsync" />
+  <package-list issue="2012073100" catalogue="msys-rxvt" />
+  <package-list issue="2012073100" catalogue="msys-sed" />
+  <package-list issue="2012073100" catalogue="msys-tar" />
+  <package-list issue="2012073100" catalogue="msys-termcap" />
+  <package-list issue="2012073100" catalogue="msys-texinfo" />
+  <package-list issue="2012073100" catalogue="msys-unzip" />
+  <package-list issue="2012073100" catalogue="msys-vim" />
+  <package-list issue="2010090600" catalogue="msys-w32api" />
+  <package-list issue="2012073100" catalogue="msys-wget" />
+  <package-list issue="2012073100" catalogue="msys-xz" />
+  <package-list issue="2012073100" catalogue="msys-zip" />
+  <package-list issue="2012073100" catalogue="msys-zlib" />
+
+  <!-- "real" packages ~~ user contributed -->
+  <package-list issue="2011112700" catalogue="msys-mksh" />
+  <package-list issue="2016031600" catalogue="msys-ncurses" />
+
+  <!-- "virtual" packages -->
+  <package-list issue="2013072300" catalogue="msys-base" />
+  <package-list issue="2013072300" catalogue="mingw-developer-toolkit" />
+  <package-list issue="2010090600" catalogue="msys-system-builder" />
+
+</software-distribution>
+<!-- vim: set nocompatible expandtab fileformat=unix textwidth=80 tabstop=2 shiftwidth=2: -->

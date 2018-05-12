@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2016082200">
+
+  <!-- File: mingw32-pthreads-w32.xml ~~ mingw-get package description for pthreads-w32 -->
+
+  <package-collection subsystem="mingw32">
+    <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
+
+    <!-- Provides the package descriptions for the pthreads-w32 library, -->
+    <!-- which is a runtime prerequisite for modern versions of GCC.     -->
+
+    <package name="mingw32-pthreads-w32" alias="pthreads-w32 pthreads">
+      <affiliate group="MinGW Standard Libraries" />
+      <description lang="en" title="POSIX threading library for Win32" >
+        <paragraph>
+          pthreads-w32 seeks to provide a freely available and high-quality
+          implementation of pthreads for Windows.  Pthreads is an API for
+          writing multithreaded applications following the POSIX standard.
+        </paragraph>
+        <paragraph>
+          The mingw32-pthreads-w32 package provides the documentation for the
+          pthreads-w32 library, as well as the related development files.  The
+          associated mingw32-libpthread package provides the runtime library.
+        </paragraph>
+      </description>
+
+      <source tarname="pthreads-w32-%-mingw32-%-src.tar" />
+      <licence tarname="pthreads-w32-%-mingw32-%-lic.tar" />
+
+      <component class="dev">
+        <release tarname="pthreads-w32-2.10-mingw32-pre-20160821-1-dev.tar.xz">
+          <requires eq="mingw32-libpthreadgc-%-mingw32-%-dev.tar" />
+          <download tarname="none" />
+        </release>
+        <release tarname="pthreads-w32-2.9.1-1-mingw32-dev.tar.lzma">
+          <requires eq="mingw32-libpthread-%-mingw32-dll-2.tar" />
+        </release>
+        <release tarname="pthreads-w32-2.8.0-3-mingw32-dev.tar.lzma" >
+          <requires eq="mingw32-libpthread-%-mingw32-dll-2.tar" />
+        </release>
+        <release tarname="pthreads-w32-2.9.0-mingw32-pre-20110507-2-dev.tar.lzma" >
+          <requires eq="mingw32-libpthreadgc-%-mingw32-%-dll-2.tar" />
+        </release>
+      </component>
+
+      <component class="doc">
+        <release tarname="pthreads-w32-2.10-mingw32-pre-20160821-1-doc.tar.xz" />
+        <release tarname="pthreads-w32-2.9.1-1-mingw32-doc.tar.lzma" />
+        <release tarname="pthreads-w32-2.8.0-3-mingw32-doc.tar.lzma" />
+        <release tarname="pthreads-w32-2.9.0-mingw32-pre-20110507-2-doc.tar.lzma" />
+      </component>
+
+      <component class="lic">
+        <release tarname="pthreads-w32-2.10-mingw32-pre-20160821-1-lic.tar.xz" />
+        <release tarname="pthreads-w32-2.9.1-1-mingw32-lic.tar.lzma" />
+        <release tarname="pthreads-w32-2.9.0-mingw32-pre-20110507-2-lic.tar.lzma" />
+        <release tarname="pthreads-w32-2.8.0-3-mingw32-lic.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="mingw32-libpthreadgc" alias="libpthreadgc mingw32-libpthread libpthread">
+      <affiliate group="MinGW Standard Libraries" />
+      <description lang="en" title="POSIX threading library for Win32" >
+        <paragraph>
+          NOTE: The 2.9.1 release delivers this library as part of the
+          pthreads-w32-2.9.1-1-mingw32-dll.tar.lzma file.  This DLL file is
+          a dependency for gcc-core-4.8.1 and will be installed as such when
+          using mingw-get.
+        </paragraph>
+        <paragraph>
+          pthreads-w32 seeks to provide a freely available and high-quality
+          implementation of pthreads for Windows.  Pthreads is an API for
+          writing multithreaded applications following the POSIX standard.
+        </paragraph>
+        <paragraph>
+          There are two mingw32 versions of the pthread-w32 runtime library: the
+          standard one, provided by this package, is called libpthreadgc but may
+          also be referred to as 'libpthread'.  The non-standard one uses C++
+          exception handling, and is called libpthreadgce. (Note that the
+          standard library may be used successfully with C++ code; indeed, on
+          most *nix platorms the system pthreads implementation follows the
+          behavior of mingw32-libpthreadgc, and NOT the behavior of the 'GCE'
+          version).  We recommend that most users rely on mingw32-libpthreadgc
+          ('GC') and not mingw32-libpthreadgce ('GCE').
+        </paragraph>
+        <paragraph>
+          The mingw32-libpthreadgc and mingw32-libpthreadgce packages provide
+          the two runtime libraries (most people need not install the 'GCE'
+          one).  The associated mingw32-pthreads-w32 package provides the
+          documentation for the pthreads-w32 library, as well as the related
+          development files.  The mingw32-libquserex package provides optional
+          support for enhanced standards conformance of the GCE runtime.
+        </paragraph>
+        <paragraph>
+          mingw32-libpthreadgc is a required component of the MinGW Compiler
+          Suite.
+        </paragraph>
+      </description>
+
+      <source tarname="pthreads-w32-%-mingw32-%-src.tar" />
+      <licence tarname="pthreads-w32-%-mingw32-%-lic.tar" />
+
+      <component class="dev">
+        <release tarname="libpthreadgc-2.10-mingw32-pre-20160821-1-dev.tar.xz">
+          <download tarname="pthreads-GC-w32-2.10-mingw32-pre-20160821-1-dev.tar.xz" />
+          <requires eq="mingw32-libpthreadgc-%-mingw32-%-dll-3.tar" />
+        </release>
+      </component>
+
+      <component class="dll">
+        <release tarname="libpthreadgc-2.10-mingw32-pre-20160821-1-dll-3.tar.xz">
+          <download tarname="pthreads-GC-w32-2.10-mingw32-pre-20160821-1-dll-3.tar.xz" />
+        </release>
+        <release tarname="libpthread-2.9.1-1-mingw32-dll-2.tar" >
+          <download tarname="pthreads-w32-2.9.1-1-mingw32-dll.tar.lzma" />
+        </release>
+        <release tarname="libpthread-2.8.0-3-mingw32-dll-2.tar.lzma" />
+        <release tarname="libpthreadgc-2.9.0-mingw32-pre-20110507-2-dll-2.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="mingw32-libpthreadgce" alias="libpthreadgce" >
+      <affiliate group="MinGW Standard Libraries" />
+      <description lang="en" title="POSIX threading library for Win32" >
+        <paragraph>
+          NOTE: The 2.9.1 release delivers this library as part of the
+          pthreads-w32-2.9.1-1-mingw32-dll.tar.lzma file.  This DLL file is
+          a dependency for gcc-core-4.8.1 and will be installed as such when
+          using mingw-get.
+        </paragraph>
+        <paragraph>
+          pthreads-w32 seeks to provide a freely available and high-quality
+          implementation of pthreads for Windows.  Pthreads is an API for
+          writing multithreaded applications following the POSIX standard.
+        </paragraph>
+        <paragraph>
+          There are two mingw32 versions of the pthread-w32 runtime library: the
+          non-standard one, provided by this package, is called libpthreadgce,
+          and uses C++ exception handling.  The standard runtime is called
+          mingw32-libpthreadgc, and may also be referred to as
+          mignw32-libpthread. (Note that the standard library may be used
+          successfully with C++ code; indeed, on most *nix platorms the system
+          pthreads implementation follows the behavior of mingw32-libpthreadgc,
+          and NOT the behavior of the 'GCE' version).  We recommend that most
+          users rely on mingw32-libpthreadgc ('GC') and not
+          mingw32-libpthreadgce ('GCE').
+        </paragraph>
+        <paragraph>
+          The mingw32-libpthreadgc and mingw32-libpthreadgce packages provide
+          the two runtime libraries (most people need not install the 'GCE'
+          one).  The associated mingw32-pthreads-w32 package provides the
+          documentation for the pthreads-w32 library, as well as the related
+          development files.  The mingw32-libquserex package provides optional
+          support for enhanced standards conformance of the GCE runtime.
+        </paragraph>
+      </description>
+
+      <source tarname="pthreads-w32-%-mingw32-%-src.tar" />
+      <licence tarname="pthreads-w32-%-mingw32-%-lic.tar" />
+
+      <component class="dev">
+        <release tarname="libpthreadgce-2.10-mingw32-pre-20160821-1-dev.tar.xz">
+          <download tarname="pthreads-GCE-w32-2.10-mingw32-pre-20160821-1-dev.tar.xz" />
+          <requires eq="mingw32-libpthreadgce-%-mingw32-%-dll-3.tar" />
+          <requires eq="mingw32-libpthreadgc-%-mingw32-%-dev.tar" />
+        </release>
+      </component>
+
+      <component class="dll">
+        <release tarname="libpthreadgce-2.10-mingw32-pre-20160821-1-dll-3.tar.xz">
+          <download tarname="pthreads-GCE-w32-2.10-mingw32-pre-20160821-1-dll-3.tar.xz" />
+        </release>
+        <release tarname="libpthreadgce-2.9.1-1-mingw32-dll-2.tar" >
+          <download tarname="none" />
+          <requires eq="mingw32-libpthread-2.9.1-1-mingw32-dll-2.tar" />
+        </release>
+        <release tarname="libpthreadgce-2.9.0-mingw32-pre-20110507-2-dll-2.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="mingw32-libquserex" alias="libquserex" >
+      <affiliate group="MinGW Standard Libraries" />
+      <description lang="en" title="POSIX threading library for Win32" >
+        <paragraph>
+          NOTE: The 2.9.1 and later releases do not deliver this library.
+          This decision was based on the number of downloads for the library
+          and the fact that it is experimental.
+        </paragraph>
+        <paragraph>
+          pthreads-w32 seeks to provide a freely available and high-quality
+          implementation of pthreads for Windows.  Pthreads is an API for
+          writing multithreaded applications following the POSIX standard.
+          libquserex is an optional library to enable enhanced standards
+          conformance of the non-standard mingw32-libpthreadgce ('GCE') runtime.
+          It provides access to a a kernel mode driver, AlertDrv.sys, which if
+          installed allows ordinary users to exploit the Win32 QueueUserAPCEx
+          function call.
+        </paragraph>
+        <paragraph>
+          There are two mingw32 versions of the pthread-w32 runtime library: the
+          non-standard one provided by mingw32-libpthreadgce ('GCE') uses C++
+          exceptions, and for full POSIX conformance needs a kernel mode driver
+          installed.  The standard runtime, mingw32-libpthreadgc ('GC') does not
+          require that driver for full standards conformance, and may be used
+          with C++ code; we recommend that most users rely on
+          mingw32-libpthreadgc ('GC') and not mingw32-libpthreadgce ('GCE').
+        </paragraph>
+        <paragraph>
+          However, for those that wish to experiment with the non-standard
+          ('GCE') runtime, this optional helper library may also be of use --
+          provided the kernel mode driver, available from mingw.org, is also
+          installed.  Note that the kernel mode driver can not currently be
+          installed on W7 (64bit) or Windows Server 2008R2 (64bit) because those
+          operating systems require kernel mode drivers to be digitally signed,
+          so this mingw32-libquserex package is rather useless on those
+          platforms.
+        </paragraph>
+        <paragraph>
+          The kernel mode driver is available at mingw.org or mirror site,
+          packaged as an InnoSetup installer executable called
+          QueueUserAPCEx-installer.exe.
+        </paragraph>
+      </description>
+
+      <source tarname="pthreads-w32-%-mingw32-%-src.tar" />
+      <licence tarname="pthreads-w32-%-mingw32-%-lic.tar" />
+
+      <component class="dll">
+        <release tarname="libquserex-2.9.0-mingw32-pre-20110507-2-dll.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="mingw32-libpthread-old" alias="libpthread-old">
+      <affiliate group="MinGW Standard Libraries" />
+      <description lang="en" title="POSIX threading library for Win32" >
+        <paragraph>
+          pthreads-w32 seeks to provide a freely available and high-quality
+          implementation of pthreads for Windows.  Pthreads is an API for
+          writing multithreaded applications following the POSIX standard.
+        </paragraph>
+        <paragraph>
+          The mingw32-libpthread-old package provides the MinGW pthreads-w32
+          runtime dll associated with MinGW GCC 4.5.2 and older. Due to an
+          unfortunate naming choice, upgrading to newer GCC will also install
+          the newer, renamed pthreads-w32 DLLs, removing the old DLL. While the
+          may not affect the new GCC, threaded applications compiled using the
+          older compiler will break, as they will miss this runtime library.
+          Therefore, the old runtime library is provided here using a new
+          package name: mingw32-libpthread-old, so that it can be (re)installed
+          parallel to the new pthreads-w32 runtime libraries.
+        </paragraph>
+      </description>
+
+      <source tarname="pthreads-w32-%-mingw32-src.tar" />
+      <licence tarname="pthreads-w32-%-mingw32-lic.tar" />
+
+      <component class="dll">
+        <release tarname="libpthread-2.8.0-3-mingw32-dll-2.tar.lzma" />
+      </component>
+    </package>
+
+  </package-collection>
+</software-distribution>
+<!-- vim: set nocompatible expandtab fileformat=unix textwidth=80 tabstop=2 shiftwidth=2: -->

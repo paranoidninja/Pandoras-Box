@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<package id="manifest-0-050-bbc0-e6c281">
+    <release tarname="mingw-get-0.6.2-mingw32-beta-20131004-1-lic.tar.xz" />
+    <references>
+        <sysroot id="sysroot-0-002-a7c6-d7dbb5" />
+    </references>
+    <manifest>
+        <dir path="share" />
+        <dir path="share/doc" />
+        <dir path="share/doc/mingw-get" />
+        <file path="share/doc/mingw-get/README" />
+        <file path="share/doc/mingw-get/COPYING" />
+    </manifest>
+</package>

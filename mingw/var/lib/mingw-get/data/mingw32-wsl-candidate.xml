@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2013070100">
+
+  <!-- File: mingw32-wsl.xml ~~ Windows System Libraries Meta-Package -->
+
+  <package-collection subsystem="mingw32">
+    <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
+
+    <affiliate group="MinGW Project Infrastructure" />
+
+    <description lang="en" title="Windows System Libraries Meta-Package">
+      <paragraph>
+        This meta-package provides a delivery mechanism to support
+        pre-release testing of the upcoming windows system library
+        packages.  You are advised to install this package, ONLY if
+        you wish to participate in the pre-release testing of the
+        windows system libraries release candidate packages.
+      </paragraph>
+      <paragraph>
+        A two stage installation procedure is required; first, to
+        initialise the pre-release testing infrastructure:
+      </paragraph>
+      <paragraph>
+        $ mingw-get install mingw32-wsl_rc
+      </paragraph>
+      <paragraph>
+        Second, to install the release candidate software packages,
+        and switch to the testing environment:
+      </paragraph>
+      <paragraph>
+        $ mingw-get install mingw32-wsl_rc-test-on
+      </paragraph>
+      <paragraph>
+        Having thus activated the testing environment, you are advised
+        to immediately, (and without prejudice to its operation):
+      </paragraph>
+      <paragraph>
+        $ mingw-get remove mingw32-wsl_rc-test-on
+      </paragraph>
+      <paragraph>
+        While in the testing environment, and after removing the
+        mingw32-wsl_rc-test-on package, you may revert all associated
+        software packages to their production releases, thus switching
+        back to a production environment, by:
+      </paragraph>
+      <paragraph>
+        $ mingw-get install mingw32-wsl_rc-test-off
+      </paragraph>
+      <paragraph>
+        As before, after installing this, you are advised to immediately,
+        (and again without prejudice to the working environment):
+      </paragraph>
+      <paragraph>
+        $ mingw-get remove mingw32-wsl_rc-test-off
+      </paragraph>
+      <paragraph>
+        Finally, if having installed mingw32-wsl_rc, you subsequently 
+        decide to remove it, please ensure that you have removed either
+        or both of mingw32-wsl_rc-test-on and mingw32-wsl_rc-test-off,
+        BEFORE you do so.
+      </paragraph>
+    </description>
+
+    <package name="mingw32-wsl_rc">
+      <component class="meta">
+	<release tarname="wsl_rc-4.0-1-mingw32-rc-4-meta.tar.lzma" />
+	<release tarname="wsl_rc-4.0-1-mingw32-rc-3-meta.tar.lzma" />
+	<release tarname="wsl_rc-4.0-1-mingw32-rc-2-meta.tar.lzma" />
+        <release tarname="wsl_rc-4.0-1-mingw32-rc-1-meta.tar.lzma" />
+        <action class="pre-install">
+          xmlpath = os.getenv("APPROOT").."var\\lib\\mingw-get\\data\\"
+          xmlorigin = "mingw32-runtime.xml" xmlbackup = "wsl-released.xml.bak"
+          os.execute( "if NOT EXIST "..xmlpath..xmlbackup.." "..
+              "ren "..xmlpath..xmlorigin.." "..xmlbackup
+            )
+        </action>
+        <action class="post-remove">
+          xmlpath = os.getenv("APPROOT").."var\\lib\\mingw-get\\data\\"
+          xmlorigin = "mingw32-runtime.xml" xmlbackup = "wsl-released.xml.bak"
+          os.execute( "if EXIST "..xmlpath..xmlbackup.." "..
+              "ren "..xmlpath..xmlbackup.." "..xmlorigin
+            )
+        </action>
+      </component>
+    </package>
+
+  </package-collection>
+</software-distribution>
+<!-- vim: set nocompatible expandtab fileformat=unix textwidth=82 tabstop=2 shiftwidth=2: -->

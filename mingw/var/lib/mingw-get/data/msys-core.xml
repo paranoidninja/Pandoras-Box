@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://mingw.org" issue="2016071500">
+
+  <!-- File: msys-core.xml -->
+
+  <package-collection subsystem="msys">
+    <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
+    <package name="msys-core" alias="msysCORE">
+      <affiliate group="MSYS Base System" />
+      <description lang="en" title="The core components of MSYS">
+        <paragraph>MSYS, or the Minimal SYStem, is a POSIX implementation
+          used in the Win32 operating system to enable configuration and
+          compiling of open-source packages. This package provides the
+          main components of MSYS, including the MSYS runtime DLL itself.
+        </paragraph>
+        <paragraph>MSYS is a fork of Cygwin and is more friendly to the
+          Win32 user. It primarily offers a user land environment for MinGW
+          development. It converts POSIX paths before executing a "native"
+          win32 program. This allows the users of the MinGW version of GCC
+          to port and build packages in a GNU familiar way and removes the
+          UNIX complexities that Cygwin adds.
+        </paragraph>
+        <paragraph>The MinGW/MSYS team provides additional packages which
+          contain utilities useful for this purpose, including perl, make,
+          autoconf, automake, libtool, m4, and many others.  However, the
+          number of such `MSYS packages' is limited in comparison to *nix or
+          Cygwin, because MSYS provides only the Minimal SYStem needed for
+          hosting open source development with the MinGW GCC compiler.  MSYS
+          is not intended to replace Cygwin, or emulate a full-fledged "port"
+          of all *nix tools.
+        </paragraph>
+      </description>
+
+      <source tarname="msysCORE-%-msys-%-src.tar.%" />
+      <licence tarname="msysCORE-%-msys-%-lic.tar.%" />
+
+      <component class="bin">
+        <!-- Note: no specific dll component in this package; the
+         MSYS dll, which is required by all MSYS packages, is bundled
+         within this msys-core-bin component.  Always ensure that the
+         basic MSYS documentation and licence information is installed
+         along with msys-core-bin; only msys-core is treated this way.
+         -->
+        <requires eq="msys-core-%-msys-%-doc.tar" />
+        <requires eq="msys-core-%-msys-%-lic.tar" />
+        <release tarname="msysCORE-1.0.17-1-msys-1.0.17-bin.tar.lzma" />
+        <release tarname="msysCORE-1.0.18-1-msys-1.0.18-bin.tar.lzma" />
+        <release tarname="msysCORE-1.0.19-1-msys-1.0.19-bin.tar.xz" />
+
+        <action class="post-install">
+        sysroot = os.getenv( "MSYS_SYSROOT" )
+        package.path = sysroot.."/postinstall/?.lua;"..package.path
+
+        local has_fstab_module, fstab = pcall( require, "fstab" )
+
+        if has_fstab_module and fstab
+        then
+          have_fstab = io.open( fstab.pathname(), "r" )
+          if have_fstab
+          then
+            io.close( have_fstab )
+          else
+            fstab.initialize()
+          end
+          fstab.sample = io.open( fstab.pathname( ".sample" ), "w" )
+          if fstab.sample
+          then
+            fstab.dump_sample( fstab.sample )
+            io.close( fstab.sample )
+          end
+        end
+        </action>
+      </component>
+
+      <component class="ext">
+        <!-- msys-core-ext contains tools that have dependencies on
+         components other than msys-core-bin alone.
+         -->
+        <release tarname="msysCORE-1.0.17-1-msys-1.0.17-ext.tar.lzma" />
+        <release tarname="msysCORE-1.0.18-1-msys-1.0.18-ext.tar.lzma" />
+        <release tarname="msysCORE-1.0.19-1-msys-1.0.19-ext.tar.xz" />
+        <requires eq="msys-bash-*-msys-*-bin.tar" />
+        <requires eq="msys-core-%-msys-%-bin.tar" />
+        <requires eq="msys-coreutils-*-msys-*-bin.tar" />
+        <requires eq="msys-gawk-*-msys-*-bin.tar" />
+        <requires eq="msys-grep-*-msys-*-bin.tar" />
+        <requires eq="msys-sed-*-msys-*-bin.tar" />
+      </component>
+
+      <component class="dev">
+        <release tarname="msysCORE-1.0.17-1-msys-1.0.17-dev.tar.lzma" />
+        <release tarname="msysCORE-1.0.18-1-msys-1.0.18-dev.tar.lzma" />
+        <release tarname="msysCORE-1.0.19-1-msys-1.0.19-dev.tar.xz" />
+      </component>
+
+      <component class="doc">
+        <release tarname="msysCORE-1.0.17-1-msys-1.0.17-doc.tar.lzma" />
+        <release tarname="msysCORE-1.0.18-1-msys-1.0.18-doc.tar.lzma" />
+        <release tarname="msysCORE-1.0.19-1-msys-1.0.19-doc.tar.xz" />
+      </component>
+
+      <component class="lic">
+        <release tarname="msysCORE-1.0.17-1-msys-1.0.17-lic.tar.lzma" />
+        <release tarname="msysCORE-1.0.18-1-msys-1.0.18-lic.tar.lzma" />
+        <release tarname="msysCORE-1.0.19-1-msys-1.0.19-lic.tar.xz" />
+      </component>
+
+      <component class="dbg">
+        <release tarname="msysCORE-1.0.17-1-msys-1.0.17-dbg.tar.lzma" />
+        <release tarname="msysCORE-1.0.18-1-msys-1.0.18-dbg.tar.lzma" />
+        <release tarname="msysCORE-1.0.19-1-msys-1.0.19-dbg.tar.xz" />
+        <requires eq="msys-core-%-msys-%-bin.tar" />
+      </component>
+    </package>
+
+  </package-collection>
+</software-distribution>
+<!-- vim: set nocompatible expandtab fileformat=unix textwidth=80 tabstop=2 shiftwidth=2: -->

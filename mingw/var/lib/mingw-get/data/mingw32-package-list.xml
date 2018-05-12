@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2018011800">
+
+  <!-- File: mingw32-package-list.xml -->
+
+  <package-group-hierarchy>
+    <package-group name="MinGW" expand="true">
+      <package-group name="MinGW Base System">
+        <package-group name="MinGW Compiler Suite" />
+        <package-group name="MinGW Source-Level Debugger" />
+        <package-group name="MinGW Standard Libraries" />
+      </package-group>
+      <package-group name="MinGW Libraries">
+        <package-group name="MinGW Standard Libraries" />
+        <package-group name="MinGW Supplementary Libraries" />
+        <package-group name="MinGW Contributed Libraries" />
+      </package-group>
+      <package-group name="MinGW Contributed">
+        <package-group name="MinGW Contributed Applications" />
+        <package-group name="MinGW Contributed Libraries" />
+      </package-group>
+      <package-group name="MinGW Autotools" />
+    </package-group>
+  </package-group-hierarchy>
+
+  <!-- "real" packages ~~ core distribution -->
+  <package-list issue="2012073100" catalogue="mingw32-autoconf" />
+  <package-list issue="2012073100" catalogue="mingw32-automake" />
+  <package-list issue="2012073100" catalogue="mingw32-basic-bsdtar" />
+  <package-list issue="2017071200" catalogue="mingw32-binutils" />
+  <package-list issue="2012073100" catalogue="mingw32-bzip2" />
+  <package-list issue="2017122100" catalogue="mingw32-dos2unix" />
+  <package-list issue="2013091000" catalogue="mingw32-expat" />
+  <package-list issue="2011050500" catalogue="mingw32-gcc3" />
+  <package-list issue="2017072600" catalogue="mingw32-gcc4" />
+  <package-list issue="2012073100" catalogue="mingw32-gcc-tools" />
+  <package-list issue="2013091501" catalogue="mingw32-gdb" />
+  <package-list issue="2012073100" catalogue="mingw32-gendef" />
+  <package-list issue="2015090600" catalogue="mingw32-gettext" />
+  <package-list issue="2017090800" catalogue="mingw32-gmp" />
+  <package-list issue="2017071400" catalogue="mingw32-isl" />
+  <package-list issue="2012073100" catalogue="mingw32-libarchive" />
+  <package-list issue="2014042900" catalogue="mingw32-libiconv" />
+  <package-list issue="2012073100" catalogue="mingw32-libtool" />
+  <package-list issue="2012021600" catalogue="mingw32-lua" />
+  <package-list issue="2012090201" catalogue="mingw32-make" />
+  <package-list issue="2013100400" catalogue="mingw32-mingw-get" />
+  <package-list issue="2012073100" catalogue="mingw32-mingw-utils" />
+  <package-list issue="2012073100" catalogue="mingw32-mgwport" />
+  <package-list issue="2017071600" catalogue="mingw32-mpc" />
+  <package-list issue="2018011700" catalogue="mingw32-mpfr" />
+  <package-list issue="2015090800" catalogue="mingw32-pexports" />
+  <package-list issue="2012073100" catalogue="mingw32-popt" />
+  <package-list issue="2016082200" catalogue="mingw32-pthreads-w32" />
+  <package-list issue="2018011800" catalogue="mingw32-runtime" />
+  <package-list issue="2013070100" catalogue="mingw32-wsl-candidate" />
+  <package-list issue="2012073100" catalogue="mingw32-xz" />
+  <package-list issue="2013101200" catalogue="mingw32-zlib" />
+
+  <!-- "virtual" packages -->
+  <package-list issue="2013072200" catalogue="mingw32-base" />
+  <package-list issue="2010090601" catalogue="mingw32-autotools" />
+
+</software-distribution>
+<!-- vim: set nocompatible expandtab fileformat=unix textwidth=80 tabstop=2 shiftwidth=2: -->

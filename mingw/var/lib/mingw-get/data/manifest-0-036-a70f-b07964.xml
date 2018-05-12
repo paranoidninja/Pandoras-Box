@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<package id="manifest-0-036-a70f-b07964">
+    <release tarname="libgmp-6.1.2-2-mingw32-dll-10.tar.xz" />
+    <references>
+        <sysroot id="sysroot-0-002-a7c6-d7dbb5" />
+    </references>
+    <manifest>
+        <file path="bin/libgmp-10.dll" />
+    </manifest>
+</package>

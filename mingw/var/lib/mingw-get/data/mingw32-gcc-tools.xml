@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://mingw.org" issue="2012073100">
+
+  <!-- File: mingw32-gcc-tools.xml -->
+
+  <package-collection subsystem="mingw32">
+    <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <package name="mingw32-gcc-tools-epoch2-autoconf">
+      <description lang="en"
+        title="special autoconf for gcc development">
+        <paragraph>Gcc requires that an unpatched, pristine version of autoconf
+          be used when preparing patches for official submission. For various
+          reasons [1] these pristine versions cannot coexist with the existing
+          mingw32-autoconf packages in /mingw. This package provides autoconf-2.64
+          and installs into /mingw/opt/gcc-tools/epoch2/{bin,share} for use when
+          developing gcc-4.5.x and gcc-4.6.x. It is also used when building
+          gettext-0.18.1.1.
+        </paragraph>
+        <paragraph>gcc-4.3.x and gcc-4.4.x development requires autoconf-2.59</paragraph>
+        <paragraph>gcc-4.5.x and gcc-4.6.x development requires autoconf-2.64</paragraph>
+        <paragraph>[1] http://cygwin.com/ml/cygwin-apps/2009-01/msg00007.html</paragraph>
+        <paragraph>Autoconf is an extensible package of M4 macros that
+          produce shell scripts to automatically configure software source
+          code packages.  These scripts can adapt the packages to many
+          kinds of UNIX-like systems without manual user intervention.
+          Autoconf creates a configuration script for a package from a
+          template file that lists the operating system features that the
+          package can use, in the form of M4 macro calls.
+        </paragraph>
+      </description>
+
+      <licence tarname="gcc-tools-epoch2-autoconf-%-mingw32-%-lic.tar.%" />
+      <source tarname="gcc-tools-epoch2-autoconf-%-mingw32-%-src.tar.%" />
+
+      <component class="bin">
+        <requires eq="msys-core-*-msys-*-bin.tar" />
+        <requires eq="msys-coreutils-*-msys-*-bin.tar" />
+        <requires eq="msys-m4-*-msys-*-bin.tar" />
+        <requires eq="msys-perl-*-msys-*-bin.tar" />
+        <requires eq="msys-texinfo-*-msys-*-bin.tar" />
+        <release tarname="gcc-tools-epoch2-autoconf-2.64-1-mingw32-bin.tar.lzma" />
+      </component>
+
+      <component class="doc">
+        <release tarname="gcc-tools-epoch2-autoconf-2.64-1-mingw32-doc.tar.lzma" />
+      </component>
+
+      <component class="lic">
+        <release tarname="gcc-tools-epoch2-autoconf-2.64-1-mingw32-lic.tar.lzma" />
+      </component>
+    </package>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <package name="mingw32-gcc-tools-epoch2-automake">
+      <description lang="en"
+        title="special automake for gcc development">
+        <paragraph>Gcc requires that an unpatched, pristine version of automake
+          be used when preparing patches for official submission. For various
+          reasons [1] these pristine versions cannot coexist with the existing
+          mingw32-automake packages in /mingw.  This package provides
+          automake-1.11 and installs into /mingw/opt/gcc-tools/epoch2/{bin,share}
+          for use when developing gcc-4.5.x and gcc-4.6.x.  It is also used when
+          building gettext-0.18.1.1.
+        </paragraph>
+        <paragraph>gcc-4.3.x and gcc-4.4.x development requires the latest
+          release in the automake-1.9.x series.
+        </paragraph>
+        <paragraph>gcc-4.5.x and gcc-4.6.x development requires the latest
+          release in the automake-1.11.x series.
+        </paragraph>
+        <paragraph>[1] http://cygwin.com/ml/cygwin-apps/2009-01/msg00007.html</paragraph>
+        <paragraph>Automake is a tool for automatically generating
+          Makefile.in files compliant with the GNU Coding Standards.
+          Automake requires the use of Autoconf.
+        </paragraph>
+      </description>
+
+      <licence tarname="gcc-tools-epoch2-automake-%-mingw32-%-lic.tar.%" />
+      <source tarname="gcc-tools-epoch2-automake-%-mingw32-%-src.tar.%" />
+
+      <component class="bin">
+        <requires eq="mingw32-gcc-tools-epoch2-autoconf-*-mingw32-*-bin.tar" />
+        <requires eq="msys-core-*-msys-*-bin.tar" />
+        <requires eq="msys-coreutils-*-msys-*-bin.tar" />
+        <requires eq="msys-m4-*-msys-*-bin.tar" />
+        <requires eq="msys-perl-*-msys-*-bin.tar" />
+        <requires eq="msys-texinfo-*-msys-*-bin.tar" />
+        <release tarname="gcc-tools-epoch2-automake-1.11.1-1-mingw32-bin.tar.lzma" />
+      </component>
+
+      <component class="doc">
+        <release tarname="gcc-tools-epoch2-automake-1.11.1-1-mingw32-doc.tar.lzma" />
+      </component>
+
+      <component class="lic">
+        <release tarname="gcc-tools-epoch2-automake-1.11.1-1-mingw32-lic.tar.lzma" />
+      </component>
+    </package>
+
+  </package-collection>
+</software-distribution>
+<!-- vim: set nocompatible expandtab fileformat=unix textwidth=80 tabstop=2 shiftwidth=2: -->

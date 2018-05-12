@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2016010800">
+
+  <!-- File: mingw32-contrib-package-list.xml -->
+
+  <package-group-hierarchy>
+    <package-group name="MinGW" expand="true">
+      <package-group name="MinGW Contributed">
+        <package-group name="MinGW Contributed Applications" />
+        <package-group name="MinGW Contributed Libraries" />
+      </package-group>
+    </package-group>
+  </package-group-hierarchy>
+
+  <!-- "real" packages ~~ user contributed -->
+  <package-list issue="2016010400" catalogue="mingw32-libunistring" />
+  <package-list issue="2016010800" catalogue="mingw32-ncurses" />
+  <package-list issue="2016010800" catalogue="mingw32-pdcurses" />
+  <package-list issue="2013101200" catalogue="mingw32-tcltk" />
+  <package-list issue="2013102800" catalogue="mingw32-xerces-c" />
+
+</software-distribution>
+<!-- vim: set nocompatible expandtab fileformat=unix textwidth=80 tabstop=2 shiftwidth=2: -->

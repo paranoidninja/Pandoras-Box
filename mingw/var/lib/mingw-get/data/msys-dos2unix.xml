@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://mingw.org" issue="2017122200">
+
+  <!-- File: msys-dos2unix.xml -->
+
+  <package-collection subsystem="msys">
+    <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
+
+    <package name="msys-dos2unix" alias="msys-cygutils-dos2unix">
+      <affiliate group="MSYS Base System" />
+      <description lang="en" title="Convert line breaks between Unix, Dos, and Mac">
+        <paragraph> The dos2unix package provides manipulation utilities for
+          converting the line break characters of text files between the unix
+          convention (0x0a), the DOS/Windows convention (0x0d 0x0a), and the old
+          (pre-OS-X) Mac convention (0x0d).
+        </paragraph>
+      </description>
+
+      <licence tarname="dos2unix-%-msys-%-lic.tar.%" />
+      <source tarname="dos2unix-%-msys-%-src.tar.%" />
+
+      <component class="bin">
+        <release tarname="dos2unix-7.4.0-1-msys-1.0.19-bin.tar.lzma" >
+          <requires eq="msys-core-*-msys-*-bin.tar" />
+          <requires eq="msys-libiconv-*-msys-*-dll-2.tar" />
+          <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+        </release>
+        <release tarname="dos2unix-7.3.2-1-msys-1.0.18-bin.tar.lzma" >
+          <requires eq="msys-core-*-msys-*-bin.tar" />
+          <requires eq="msys-libiconv-*-msys-*-dll-2.tar" />
+          <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+        </release>
+        <release tarname="dos2unix-7.2.3-1-msys-1.0.18-bin.tar.lzma" >
+          <requires eq="msys-core-*-msys-*-bin.tar" />
+          <requires eq="msys-libiconv-*-msys-*-dll-2.tar" />
+          <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+        </release>
+        <release tarname="dos2unix-7.2.2-1-msys-1.0.18-bin.tar.lzma" >
+          <requires eq="msys-core-*-msys-*-bin.tar" />
+          <requires eq="msys-libiconv-*-msys-*-dll-2.tar" />
+          <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+        </release>
+        <release tarname="dos2unix-7.1-1-msys-1.0.17-bin.tar.lzma" >
+          <requires eq="msys-core-*-msys-*-bin.tar" />
+          <requires eq="msys-libiconv-*-msys-*-dll-2.tar" />
+          <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+        </release>
+        <release tarname="dos2unix-6.0.6-1-msys-1.0.17-bin.tar.lzma" >
+          <requires eq="msys-core-*-msys-*-bin.tar" />
+          <requires eq="msys-libiconv-*-msys-*-dll-2.tar" />
+          <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+        </release>
+        <release tarname="dos2unix-6.0.5-1-msys-1.0.17-bin.tar.lzma" >
+          <requires eq="msys-core-*-msys-*-bin.tar" />
+          <requires eq="msys-libiconv-*-msys-*-dll-2.tar" />
+          <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+        </release>
+        <release tarname="dos2unix-6.0.4-1-msys-1.0.17-bin.tar.lzma" >
+          <requires eq="msys-core-*-msys-*-bin.tar" />
+          <requires eq="msys-libiconv-*-msys-*-dll-2.tar" />
+          <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+        </release>
+        <release tarname="dos2unix-6.0.3-1-msys-1.0.17-bin.tar.lzma" >
+          <requires eq="msys-core-*-msys-*-bin.tar" />
+          <requires eq="msys-libiconv-*-msys-*-dll-2.tar" />
+          <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+        </release>
+        <release tarname="dos2unix-6.0.2-1-msys-1.0.17-bin.tar.lzma" >
+          <requires eq="msys-core-*-msys-*-bin.tar" />
+          <requires eq="msys-libiconv-*-msys-*-dll-2.tar" />
+          <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+        </release>
+        <release tarname="dos2unix-6.0.1-1-msys-1.0.17-bin.tar.lzma" >
+          <requires eq="msys-core-*-msys-*-bin.tar" />
+          <requires eq="msys-libiconv-*-msys-*-dll-2.tar" />
+          <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+        </release>
+        <release tarname="dos2unix-6.0-1-msys-1.0.17-bin.tar.lzma" >
+          <requires eq="msys-core-*-msys-*-bin.tar" />
+          <requires eq="msys-libiconv-*-msys-*-dll-2.tar" />
+          <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+        </release>
+        <release tarname="dos2unix-5.3.3-1-msys-1.0.17-bin.tar.lzma" >
+          <requires eq="msys-core-*-msys-*-bin.tar" />
+          <requires eq="msys-libiconv-*-msys-*-dll-2.tar" />
+          <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+        </release>
+        <release tarname="cygutils-dos2unix-1.3.4-4-msys-1.0.13-bin.tar.lzma">
+          <licence tarname="cygutils-dos2unix-%-msys-%-lic.tar.%" />
+          <source tarname="cygutils-%-msys-%-src.tar.%" />
+          <requires eq="msys-libpopt-*-msys-*-dll-0.tar" />
+        </release>
+      </component>
+
+      <component class="doc">
+        <release tarname="dos2unix-7.4.0-1-msys-1.0.19-doc.tar.lzma" />
+        <release tarname="dos2unix-7.3.2-1-msys-1.0.18-doc.tar.lzma" />
+        <release tarname="dos2unix-7.2.3-1-msys-1.0.18-doc.tar.lzma" />
+        <release tarname="dos2unix-7.2.2-1-msys-1.0.18-doc.tar.lzma" />
+        <release tarname="dos2unix-7.1-1-msys-1.0.17-doc.tar.lzma" />
+        <release tarname="dos2unix-6.0.6-1-msys-1.0.17-doc.tar.lzma" />
+        <release tarname="dos2unix-6.0.5-1-msys-1.0.17-doc.tar.lzma" />
+        <release tarname="dos2unix-6.0.4-1-msys-1.0.17-doc.tar.lzma" />
+        <release tarname="dos2unix-6.0.3-1-msys-1.0.17-doc.tar.lzma" />
+        <release tarname="dos2unix-6.0.2-1-msys-1.0.17-doc.tar.lzma" />
+        <release tarname="dos2unix-6.0.1-1-msys-1.0.17-doc.tar.lzma" />
+        <release tarname="dos2unix-6.0-1-msys-1.0.17-doc.tar.lzma" />
+        <release tarname="dos2unix-5.3.3-1-msys-1.0.17-doc.tar.lzma" />
+        <release tarname="cygutils-dos2unix-1.3.4-4-msys-1.0.13-doc.tar.lzma">
+          <download tarname="none" />
+          <requires eq="msys-cygutils-%-msys-%-doc.tar" />
+          <licence tarname="cygutils-dos2unix-%-msys-%-lic.tar.%" />
+          <source tarname="cygutils-%-msys-%-src.tar.%" />
+        </release>
+      </component>
+
+      <component class="lic">
+        <release tarname="dos2unix-7.4.0-1-msys-1.0.19-lic.tar.lzma" />
+        <release tarname="dos2unix-7.3.2-1-msys-1.0.18-lic.tar.lzma" />
+        <release tarname="dos2unix-7.2.3-1-msys-1.0.18-lic.tar.lzma" />
+        <release tarname="dos2unix-7.2.2-1-msys-1.0.18-lic.tar.lzma" />
+        <release tarname="dos2unix-7.1-1-msys-1.0.17-lic.tar.lzma" />
+        <release tarname="dos2unix-6.0.6-1-msys-1.0.17-lic.tar.lzma" />
+        <release tarname="dos2unix-6.0.5-1-msys-1.0.17-lic.tar.lzma" />
+        <release tarname="dos2unix-6.0.4-1-msys-1.0.17-lic.tar.lzma" />
+        <release tarname="dos2unix-6.0.3-1-msys-1.0.17-lic.tar.lzma" />
+        <release tarname="dos2unix-6.0.2-1-msys-1.0.17-lic.tar.lzma" />
+        <release tarname="dos2unix-6.0.1-1-msys-1.0.17-lic.tar.lzma" />
+        <release tarname="dos2unix-6.0-1-msys-1.0.17-lic.tar.lzma" />
+        <release tarname="dos2unix-5.3.3-1-msys-1.0.17-lic.tar.lzma" />
+        <release tarname="cygutils-dos2unix-1.3.4-4-msys-1.0.13-lic.tar.lzma">
+          <download tarname="none" />
+          <requires eq="msys-cygutils-%-msys-%-lic.tar" />
+          <licence tarname="cygutils-dos2unix-%-msys-%-lic.tar.%" />
+          <source tarname="cygutils-%-msys-%-src.tar.%" />
+        </release>
+      </component>
+    </package>
+
+  </package-collection>
+</software-distribution>
+<!-- vim: set nocompatible expandtab fileformat=unix textwidth=80 tabstop=2 shiftwidth=2: -->

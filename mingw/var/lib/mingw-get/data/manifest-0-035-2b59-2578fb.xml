@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<package id="manifest-0-035-2b59-2578fb">
+    <release tarname="libmpc-1.0.3-1-mingw32-dll-3.tar.xz" />
+    <references>
+        <sysroot id="sysroot-0-002-a7c6-d7dbb5" />
+    </references>
+    <manifest>
+        <file path="bin/libmpc-3.dll" />
+    </manifest>
+</package>

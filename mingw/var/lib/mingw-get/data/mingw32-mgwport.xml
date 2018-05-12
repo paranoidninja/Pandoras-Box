@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://mingw.org" issue="2012073100">
+
+  <!-- File: mingw32-mgwport.xml -->
+
+  <package-collection subsystem="mingw32">
+    <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
+
+    <package name="mingw32-mgwport" alias="mgwport">
+      <description lang="en" title="MinGW/MSYS source packaging tool" >
+        <paragraph>This is mgwport, a revolutionary new method for building and
+        maintaining packages for MinGW and MSYS. It is based on the cygport
+        tool, which is near-universally used to maintain components of the
+        cygwin distribution.
+        </paragraph>
+      </description>
+
+      <licence tarname="mgwport-%-mingw32-%-lic.tar.%" />
+      <source tarname="mgwport-%-mingw32-%-src.tar.%" />
+
+      <component class="bin">
+        <requires eq="msys-core-*-msys-*-bin.tar" />
+        <requires eq="msys-bash-*-msys-*-bin.tar" />
+        <requires eq="msys-bzip2-*-msys-*-bin.tar" />
+        <requires eq="msys-coreutils-*-msys-*-bin.tar" />
+        <requires eq="msys-diffstat-*-msys-*-bin.tar" />
+        <requires eq="msys-diffutils-*-msys-*-bin.tar" />
+        <requires eq="msys-file-*-msys-*-bin.tar" />
+        <requires eq="msys-grep-*-msys-*-bin.tar" />
+        <requires eq="msys-gzip-*-msys-*-bin.tar" />
+        <requires eq="msys-lndir-*-msys-*-bin.tar" />
+        <requires eq="msys-make-*-msys-*-bin.tar" />
+        <requires eq="msys-patch-*-msys-*-bin.tar" />
+        <requires eq="msys-rsync-*-msys-*-bin.tar" />
+        <requires eq="msys-sed-*-msys-*-bin.tar" />
+        <requires eq="msys-tar-*-msys-*-bin.tar" />
+        <requires eq="msys-unzip-*-msys-*-bin.tar" />
+        <requires eq="msys-wget-*-msys-*-bin.tar" />
+        <requires eq="msys-xz-*-msys-*-bin.tar" />
+        <requires eq="mingw32-binutils-*-mingw32-*-bin.tar" />
+        <requires eq="mingw32-autoconf-*-mingw32-*-bin.tar" />
+        <requires eq="mingw32-autoconf2.1-*-mingw32-*-bin.tar" />
+        <requires eq="mingw32-autoconf2.5-*-mingw32-*-bin.tar" />
+        <requires eq="mingw32-automake-*-mingw32-*-bin.tar" />
+        <requires eq="mingw32-automake1.4-*-mingw32-*-bin.tar" />
+        <requires eq="mingw32-automake1.5-*-mingw32-*-bin.tar" />
+        <requires eq="mingw32-automake1.6-*-mingw32-*-bin.tar" />
+        <requires eq="mingw32-automake1.7-*-mingw32-*-bin.tar" />
+        <requires eq="mingw32-automake1.8-*-mingw32-*-bin.tar" />
+        <requires eq="mingw32-automake1.9-*-mingw32-*-bin.tar" />
+        <requires eq="mingw32-automake1.10-*-mingw32-*-bin.tar" />
+        <requires eq="mingw32-automake1.11-*-mingw32-*-bin.tar" />
+        <requires eq="mingw32-libtool-*-mingw32-*-bin.tar" />
+        <!-- These are only required when using mgwport to build msys packages
+        <requires eq="msys-binutils-*-msys-*-bin.tar" />
+        <requires eq="msys-autoconf-*-msys-*-bin.tar" />
+        <requires eq="msys-automake-*-msys-*-bin.tar" />
+        <requires eq="msys-libtool-*-msys-*-bin.tar" />
+        -->
+        <release tarname="mgwport-0.10.5-1-mingw32-bin.tar.lzma" />
+        <release tarname="mgwport-0.10.6-1-mingw32-bin.tar.lzma" />
+      </component>
+
+      <component class="doc">
+        <release tarname="mgwport-0.10.5-1-mingw32-doc.tar.lzma" />
+        <release tarname="mgwport-0.10.6-1-mingw32-doc.tar.lzma" />
+      </component>
+
+      <component class="lic">
+        <release tarname="mgwport-0.10.5-1-mingw32-lic.tar.lzma" />
+        <release tarname="mgwport-0.10.6-1-mingw32-lic.tar.lzma" />
+      </component>
+    </package>
+
+  </package-collection>
+</software-distribution>
+<!-- vim: set nocompatible expandtab fileformat=unix textwidth=80 tabstop=2 shiftwidth=2: -->

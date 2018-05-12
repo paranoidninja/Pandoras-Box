@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<package id="manifest-0-039-e383-c525fe">
+    <release tarname="libintl-0.18.3.2-2-mingw32-dll-8.tar.xz" />
+    <references>
+        <sysroot id="sysroot-0-002-a7c6-d7dbb5" />
+    </references>
+    <manifest>
+        <file path="bin/libintl-8.dll" />
+    </manifest>
+</package>

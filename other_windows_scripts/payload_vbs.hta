@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script language="VBScript">
+
+            Sub RunProgram
+
+                Const NORMAL_WINDOW = 1
+                Set objShell = CreateObject("Shell.Application")
+                objShell.ShellExecute "tcpconnect.vbs", , , , NORMAL_WINDOW
+
+            End Sub
+
+        </script>
+    </head>
+
+    <body>
+
+    <button onclick="RunProgram">Run Program</button> <p>
+
+    </body>
+
+</html>

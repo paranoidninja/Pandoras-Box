@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://mingw.org" issue="2012073100">
+
+  <!-- File: msys-zlib.xml -->
+
+  <package-collection subsystem="msys">
+    <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
+
+    <package name="msys-zlib">
+      <description lang="en" title="A Massively Spiffy Yet Delicately Unobtrusive Compression Library">
+        <paragraph>The zlib compression library provides in-memory
+          compression and decompression functions, including integrity checks
+          of the uncompressed data.
+        </paragraph>
+      </description>
+
+      <source tarname="zlib-%-msys-%-src.tar.%" />
+      <licence tarname="zlib-%-msys-%-lic.tar.%" />
+
+      <component class="dll">
+        <!-- note: for historical reasons,
+          the zlib dll component does not specify a soname
+          -->
+        <release tarname="zlib-1.2.3-2-msys-1.0.13-dll.tar.lzma" />
+        <release tarname="zlib-1.2.5-1-msys-1.0.17-dll.tar.lzma" />
+        <release tarname="zlib-1.2.7-1-msys-1.0.17-dll.tar.lzma" />
+        <requires eq="msys-core-*-msys-*-bin.tar" />
+      </component>
+
+      <component class="dev">
+        <release tarname="zlib-1.2.3-2-msys-1.0.13-dev.tar.lzma" />
+        <release tarname="zlib-1.2.5-1-msys-1.0.17-dev.tar.lzma" />
+        <release tarname="zlib-1.2.7-1-msys-1.0.17-dev.tar.lzma" />
+        <requires eq="msys-zlib-%-msys-%-dll.tar" />
+      </component>
+
+      <component class="doc">
+        <release tarname="zlib-1.2.3-2-msys-1.0.13-doc.tar.lzma" />
+        <release tarname="zlib-1.2.5-1-msys-1.0.17-doc.tar.lzma" />
+        <release tarname="zlib-1.2.7-1-msys-1.0.17-doc.tar.lzma" />
+      </component>
+
+      <component class="lic">
+        <release tarname="zlib-1.2.3-2-msys-1.0.13-lic.tar.lzma" />
+        <release tarname="zlib-1.2.5-1-msys-1.0.17-lic.tar.lzma" />
+        <release tarname="zlib-1.2.7-1-msys-1.0.17-lic.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="msys-minizip">
+      <description lang="en" title="Simple ZIP support from zlib">
+        <paragraph>The minizip package provides two simple ZIP archive
+          manipulation tools, based on the minizip library from zlib.  More
+          sophisticated needs are met by the unzip and zip packages.
+        </paragraph>
+        <paragraph>The libminizip library provides zlib-based support for
+          manipulating ZIP archives. It is suitable for clients that need only
+          create, inspect, and unpack such archives; more demanding needs may be
+          met by the libarchive package.
+        </paragraph>
+      </description>
+
+      <licence tarname="zlib-%-msys-%-lic.tar.%" />
+      <source tarname="zlib-%-msys-%-src.tar.%" />
+
+      <component class="bin">
+        <requires eq="msys-libminizip-%-msys-%-dll-1.tar" />
+        <release tarname="minizip-1.2.7-1-msys-1.0.17-bin.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="msys-libminizip">
+      <description lang="en" title="Simple ZIP support from zlib">
+        <paragraph>The minizip library provides zlib-based support for
+          manipulating ZIP archives. It is suitable for clients that need only
+          create, inspect, and unpack such archives; more demanding needs may be
+          met by the libarchive package.
+        </paragraph>
+        <paragraph>This distribution also provides two simple utility programs:
+          minizip and miniunzip. Again, more sophisticated needs are met by the
+          unzip and zip packages.
+        </paragraph>
+      </description>
+
+      <licence tarname="zlib-%-msys-%-lic.tar.%" />
+      <source tarname="zlib-%-msys-%-src.tar.%" />
+
+      <component class="dll">
+        <requires eq="msys-zlib-%-msys-%-dll-1.tar" />
+        <release tarname="libminizip-1.2.7-1-msys-1.0.17-dll-1.tar.lzma" />
+      </component>
+
+      <component class="dev">
+        <requires eq="msys-zlib-%-msys-%-dev.tar" />
+        <requires eq="msys-libminizip-%-msys-%-dll-1.tar" />
+        <release tarname="libminizip-1.2.7-1-msys-1.0.17-dev.tar.lzma" />
+      </component>
+    </package>
+
+  </package-collection>
+</software-distribution>
+<!-- vim: set nocompatible expandtab fileformat=unix textwidth=80 tabstop=2 shiftwidth=2: -->

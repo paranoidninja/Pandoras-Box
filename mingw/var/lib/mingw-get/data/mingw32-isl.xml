@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2017071400">
+
+  <!-- File: mingw32-isl.xml ~~ mingw-get package description for ISL -->
+
+  <package-collection subsystem="mingw32">
+    <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
+
+    <!-- Provides the package descriptions for the ISL library, which -->
+    <!-- is a runtime prerequisite for modern versions of GCC.        -->
+
+    <package name="mingw32-isl" alias="isl">
+      <affiliate group="MinGW Standard Libraries" />
+      <description lang="en" title="Integer Set Library">
+        <paragraph>
+          ISL is a C library for manipulating sets of, and the relationships
+          between, integer points bounded by linear constraints.
+        </paragraph>
+        <paragraph>
+          This mingw32-isl package set provides the documentation for the ISL
+          library, as well as the related development files.  The associated
+          mingw32-libisl package provides the C runtime library.
+        </paragraph>
+      </description>
+
+      <source tarname="isl-%-mingw32-src.tar.%" />
+      <licence tarname="isl-%-mingw32-lic.tar.%" />
+
+      <component class="dev">
+        <release tarname="isl-0.18-1-mingw32-dev.tar.xz" />
+        <requires eq="libisl-%-mingw32-dll-15.tar" />
+        <requires ge="gmp-*-mingw32-dev.tar" />
+      </component>
+
+      <component class="doc">
+        <release tarname="isl-0.18-1-mingw32-doc.tar.xz" />
+      </component>
+
+      <component class="lic">
+        <release tarname="isl-0.18-1-mingw32-lic.tar.xz" />
+      </component>
+    </package>
+
+    <package name="mingw32-libisl" alias="libisl">
+      <affiliate group="MinGW Standard Libraries" />
+      <description lang="en" title="Integer Set Library">
+        <paragraph>
+          ISL is a C library for manipulating sets of, and the relationships
+          between, integer points bounded by linear constraints.  This package
+          provides the runtime library; the associated development files, and
+          documentation, may be found in the mingw32-isl package set.
+        </paragraph>
+        <paragraph>
+          From the release of GCC-6.3.0 onwards, this package is a required
+          component of the MinGW Compiler Suite.
+        </paragraph>
+      </description>
+
+      <source tarname="isl-%-mingw32-src.tar.%" />
+      <licence tarname="isl-%-mingw32-lic.tar.%" />
+
+      <component class="dll">
+        <release tarname="libisl-0.18-1-mingw32-dll-15.tar.xz" />
+        <requires eq="mingw32-libgmp-*-mingw32-dll-10.tar" />
+        <requires eq="mingw32-libgcc-*-mingw32-dll-1.tar" />
+      </component>
+    </package>
+
+  </package-collection>
+</software-distribution>
+
+<!-- vim: set textwidth=80 tabstop=2 shiftwidth=2 expandtab: -->
+<!-- vim: set fileformat=unix nocompatible: -->

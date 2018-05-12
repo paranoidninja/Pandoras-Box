@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011112700">
+
+  <!-- File: msys-mksh.xml -->
+
+  <package-collection subsystem="msys">
+    <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
+
+    <package name="msys-mksh" alias="mksh">
+      <affiliate group="MinGW Developer Toolkit" />
+      <description lang="en" title="mksh: The MirBSD Korn Shell" >
+        <paragraph>The MirBSD Korn Shell is an actively developed free
+          implementation of the Korn Shell programming language and a successor
+          to the Public Domain Korn Shell (pdksh).
+        </paragraph>
+      </description>
+
+      <source tarname="mksh-%-msys-%-src.tar.%" />
+      <licence tarname="mksh-%-msys-%-lic.tar.%" />
+
+      <component class="bin">
+        <release tarname="mksh-40.0.0c-1-msys-1.0.17-bin.tar.lzma" />
+        <requires eq="msys-core-*-msys-*-bin.tar" />
+        <requires eq="msys-coreutils-*-msys-*-bin.tar" />
+      </component>
+
+      <component class="doc">
+        <release tarname="mksh-40.0.0c-1-msys-1.0.17-doc.tar.lzma" />
+      </component>
+
+      <component class="lic">
+        <release tarname="mksh-40.0.0c-1-msys-1.0.17-lic.tar.lzma" />
+      </component>
+    </package>
+
+  </package-collection>
+</software-distribution>
+<!-- vim: set nocompatible expandtab fileformat=unix textwidth=80 tabstop=2 shiftwidth=2: -->

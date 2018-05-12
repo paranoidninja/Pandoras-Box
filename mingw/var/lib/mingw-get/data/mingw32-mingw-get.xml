@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2013100400">
+
+  <!-- File: mingw32-mingw-get.xml ~~ mingw-get self-upgrade manifest -->
+
+  <package-collection subsystem="mingw32">
+    <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
+
+    <package name="mingw32-mingw-get" alias="mingw-get">
+      <affiliate group="MinGW Base System" />
+
+      <description lang="en" title="MinGW Package Download and Installation Tool">
+        <paragraph>mingw-get is a tool to assist users in the management of MinGW
+          and MSYS software installations.  Configured via an online XML database,
+          which is managed by the project maintainers, it offers a choice of
+          command line and graphical user interfaces, facilitating selective
+          download and installation of packages provided by the project.
+        </paragraph>
+        <paragraph>The XML database provides maintainers with a mechanism for the
+          specification of inter-package dependencies; this permits configuration
+          of any package, such that the end user may elect to install just that
+          specific package, leaving mingw-get to ensure that all dependencies will
+          be automatically satisfied at installation time.
+        </paragraph>
+      </description>
+
+      <component class="bin">
+        <description lang="en">
+          <paragraph>This package provides the binary components which are
+            required to run mingw-get as a command line tool, together with
+            components which are common to both command line and graphical user
+            interfaces.  If you prefer a graphical user interface, you should
+            install mingw32-mingw-get-gui in addition to this package.
+          </paragraph>
+        </description>
+
+        <release tarname="mingw-get-0.6.2-mingw32-beta-20131004-1-bin.tar.xz" />
+        <release tarname="mingw-get-0.6.1-mingw32-beta-20130910-1-bin.tar.xz" />
+        <release tarname="mingw-get-0.6.0-mingw32-beta-20130904-1-bin.tar.xz" />
+        <release tarname="mingw-get-0.5-mingw32-beta-20120426-1-bin.tar.xz" />
+        <release tarname="mingw-get-0.4-mingw32-alpha-1-bin.tar.xz" />
+
+        <action class="post-install">
+          setup = require "setup"
+          print( " running post-install hooks for mingw-get-bin" )
+          setup.create_shortcuts(
+            '--description="MinGW Installation Manager"',
+            setup.libexec_path( "guistub.exe" ), "mingw-get"
+          )
+        </action>
+        <action class="pre-remove">
+          setup = require "setup"
+          print( " running pre-remove hooks for mingw-get-bin" )
+          setup.delete_shortcuts(
+            "--if-linked="..setup.libexec_path( "gui.exe" ),
+            "--force", "mingw-get"
+          )
+          setup.delete_shortcuts(
+            "--if-linked="..setup.libexec_path( "guistub.exe" ),
+            "--force", "mingw-get"
+          )
+        </action>
+      </component>
+
+      <component class="gui">
+        <description lang="en">
+          <paragraph>This package augments mingw32-mingw-get-bin, providing a
+            graphical user interface to mingw-get.
+          </paragraph>
+        </description>
+
+        <requires eq="mingw-get-%-mingw32-%-bin.tar" />
+
+        <release tarname="mingw-get-0.6.2-mingw32-beta-20131004-1-gui.tar.xz" />
+        <release tarname="mingw-get-0.6.1-mingw32-beta-20130910-1-gui.tar.xz" />
+        <release tarname="mingw-get-0.6.0-mingw32-beta-20130904-1-gui.tar.xz" />
+
+        <action class="post-install">
+          setup = require "setup"
+          print( " running post-install hooks for mingw-get-bin" )
+          setup.create_shortcuts(
+            '--description="MinGW Installation Manager"',
+            setup.libexec_path( "guimain.exe" ), "mingw-get"
+          )
+        </action>
+        <action class="pre-remove">
+          setup = require "setup"
+          print( " running pre-remove hooks for mingw-get-bin" )
+          setup.delete_shortcuts(
+            "--if-linked="..setup.libexec_path( "guimain.exe" ),
+            "--force", "mingw-get"
+          )
+        </action>
+      </component>
+
+      <component class="lic">
+        <release tarname="mingw-get-0.6.2-mingw32-beta-20131004-1-lic.tar.xz" />
+        <release tarname="mingw-get-0.6.1-mingw32-beta-20130910-1-lic.tar.xz" />
+        <release tarname="mingw-get-0.6.0-mingw32-beta-20130904-1-lic.tar.xz" />
+        <release tarname="mingw-get-0.5-mingw32-beta-20120426-1-lic.tar.xz" />
+        <release tarname="mingw-get-0.4-mingw32-alpha-1-lic.tar.xz" />
+      </component>
+    </package>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    <package name="mingw32-pkginfo" alias="pkginfo">
+      <description lang="en" title="MinGW Package Identification Tool">
+        <paragraph>pkginfo is a tool which may be used to parse and analyse
+          the names of packages provided by the MinGW/MSYS Project.  It uses
+          the same lexical analyser as mingw-get, to extract meta-data from
+          any specified package name.
+        </paragraph>
+        <paragraph>It is primarily of interest to members of the MinGW/MSYS
+          Project Team, who may use it to confirm that their chosen package
+          names convey the intended meta-data to mingw-get.
+        </paragraph>
+      </description>
+
+      <licence tarname="mingw-get-%-mingw32-%-lic.tar.%" />
+      <source tarname="mingw-get-%-mingw32-%-src.tar.%" />
+
+      <component class="bin">
+        <release tarname="pkginfo-0.6.2-mingw32-beta-20131004-1-bin.tar.xz" />
+        <release tarname="pkginfo-0.6.1-mingw32-beta-20130910-1-bin.tar.xz" />
+        <release tarname="pkginfo-0.6.0-mingw32-beta-20130904-1-bin.tar.xz" />
+        <release tarname="pkginfo-0.5-mingw32-beta-20120426-1-bin.tar.xz" />
+        <release tarname="pkginfo-0.4-mingw32-alpha-1-bin.tar.xz" />
+      </component>
+    </package>
+
+  </package-collection>
+</software-distribution>
+<!-- vim: set nocompatible expandtab fileformat=unix textwidth=82 tabstop=2 shiftwidth=2: -->

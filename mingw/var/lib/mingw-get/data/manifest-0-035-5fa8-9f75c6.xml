@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<package id="manifest-0-035-5fa8-9f75c6">
+    <release tarname="libgcc-6.3.0-1-mingw32-dll-1.tar.xz" />
+    <references>
+        <sysroot id="sysroot-0-002-a7c6-d7dbb5" />
+    </references>
+    <manifest>
+        <file path="bin/libgcc_s_dw2-1.dll" />
+    </manifest>
+</package>

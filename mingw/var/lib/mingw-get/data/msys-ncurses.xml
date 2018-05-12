@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://mingw.org" issue="2016031600">
+
+  <!-- File: msys-ncurses.xml -->
+
+  <package-collection subsystem="msys">
+    <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
+
+    <package name="msys-ncurses">
+      <description lang="en" title="A free software implementation of the SysV4.0 curses terminal-handling library and tools">
+        <paragraph>
+          The  ncurses  (new  curses)  library  is  a free software emulation of
+          curses  in  System  V  Release 4.0, and more. It uses terminfo format,
+          supports  pads  and color and multiple highlights and forms characters
+          and   function-key   mapping,   and  has  all  the  other  SYSV-curses
+          enhancements over BSD curses.
+        </paragraph>
+        <paragraph>The msys-ncurses package provides the documentation and
+          programs for the ncurses library.  The associated msys-libncurses
+          package provides the runtime library and related development files.
+        </paragraph>
+      </description>
+
+      <licence tarname="ncurses-%-msys-%-lic.tar.%" />
+      <source tarname="ncurses-%-msys-%-src.tar.%" />
+
+      <component class="bin">
+        <release tarname="ncurses-6.0-2-msys-1.0.18-bin.tar.lzma" />
+      </component>
+
+      <component class="doc">
+        <release tarname="ncurses-6.0-2-msys-1.0.18-doc.tar.lzma" />
+      </component>
+
+      <component class="lic">
+        <release tarname="ncurses-6.0-2-msys-1.0.18-lic.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="msys-libncurses">
+
+      <description lang="en" title="A free software implementation of the SysV4.0 curses terminal-handling library and tools">
+        <paragraph>
+          The  ncurses  (new  curses)  library  is  a free software emulation of
+          curses  in  System  V  Release 4.0, and more. It uses terminfo format,
+          supports  pads  and color and multiple highlights and forms characters
+          and   function-key   mapping,   and  has  all  the  other  SYSV-curses
+          enhancements over BSD curses.
+        </paragraph>
+        <paragraph>The msys-libncurses package provides the runtime library
+          and related development files for ncurses.  The associated
+          msys-ncurses package provides the documentation and programs
+          related to the library.
+        </paragraph>
+      </description>
+
+      <licence tarname="ncurses-%-msys-%-lic.tar.%" />
+      <source tarname="ncurses-%-msys-%-src.tar.%" />
+
+      <component class="dev">
+        <release tarname="libncurses-6.0-2-msys-1.0.18-dev.tar.lzma" />
+      </component>
+
+      <component class="dll">
+        <release tarname="libncurses-6.0-2-msys-1.0.18-dll-6.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="msys-terminfo">
+
+      <description lang="en" title="Terminal capability data base">
+        <paragraph>
+         Terminfo  is  a  data  base  describing terminals, used by
+         screen-oriented programs  such  as  nvi(1),  rogue(1)  and
+         libraries  such  as curses(3x).  Terminfo describes termi-
+         nals by giving a set of capabilities which they  have,  by
+         specifying how to perform screen operations, and by speci-
+         fying padding requirements and  initialization  sequences.
+        </paragraph>
+      </description>
+
+      <licence tarname="ncurses-%-msys-%-lic.tar.%" />
+      <source tarname="ncurses-%-msys-%-src.tar.%" />
+
+      <component class="data">
+        <release tarname="terminfo-6.0-2-msys-1.0.18-data.tar.lzma" />
+      </component>
+    </package>
+
+  </package-collection>
+</software-distribution>
+<!-- vim: set nocompatible expandtab fileformat=unix textwidth=80 tabstop=2 shiftwidth=2: -->

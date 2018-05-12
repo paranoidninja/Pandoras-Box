@@ -1,0 +1,994 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2017072600">
+
+  <!-- File: mingw32-gcc4.xml ~~ mingw-get package list for GCC version 4.x -->
+
+  <package-group-hierarchy>
+    <!-- FIXME: this is a temporary addition to the package hierarchy;   -->
+    <!-- it serves to make it easier to locate those malformed packages  -->
+    <!-- which may interfere with a clean upgrade of a GCC installation, -->
+    <!-- and so facilitate their removal in advance.                     -->
+    <package-group name="MinGW" expand="true">
+      <package-group name="MinGW Base System">
+        <package-group name="MinGW Compiler Suite">
+          <package-group name="GCC Upgrade Blockers" />
+        </package-group>
+      </package-group>
+    </package-group>
+  </package-group-hierarchy>
+
+  <package-collection subsystem="mingw32">
+    <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
+
+    <package name="mingw32-gcc" alias="gcc gcc-core mingw32-gcc-core">
+      <affiliate group="MinGW Compiler Suite" />
+      <description lang="en" title="The GNU C Compiler">
+        <paragraph>
+          This package provides the MinGW implementation of the
+          GNU C language compiler; this includes the C preprocessor,
+          and the common back end processors which are necessary to
+          support all other language compilers in the GNU Compiler
+          Collection.
+        </paragraph>
+        <paragraph>
+          This is a required component of the MinGW Compiler Suite.
+        </paragraph>
+      </description>
+
+      <source tarname="gcc-%-mingw32-src.tar.*" />
+      <licence tarname="gcc-%-mingw32-lic.tar.*" />
+
+      <component class="lic">
+        <release tarname="gcc-6.3.0-1-mingw32-lic.tar.xz" />
+        <release tarname="gcc-5.3.0-3-mingw32-lic.tar.xz" />
+        <release tarname="gcc-5.3.0-2-mingw32-lic.tar.xz" />
+        <release tarname="gcc-4.9.3-1-mingw32-lic.tar.xz" />
+        <release tarname="gcc-core-4.8.1-4-mingw32-lic.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-3-mingw32-lic.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-2-mingw32-lic.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-1-mingw32-lic.tar.lzma" />
+        <release tarname="gcc-4.7.2-1-mingw32-lic.tar.lzma" />
+        <release tarname="gcc-4.7.0-1-mingw32-lic.tar.lzma" />
+        <release tarname="gcc-4.6.2-1-mingw32-lic.tar.lzma" />
+        <release tarname="gcc-4.6.1-2-mingw32-lic.tar.lzma" />
+        <release tarname="gcc-4.5.2-1-mingw32-lic.tar.lzma" />
+      </component>
+
+      <component class="bin">
+        <requires eq="binutils-*-mingw32-bin.tar" />
+        <requires eq="mingwrt-*-mingw32-dev.tar" />
+        <requires eq="w32api-*-mingw32-dev.tar" />
+        <requires eq="libmingwex-*-mingw32-dll-0.tar" />
+        <requires eq="mingw32-libssp-%-mingw32-dll-0.tar" />
+        <requires eq="mingw32-libgomp-%-mingw32-dll-1.tar" />
+        <requires eq="mingw32-libquadmath-%-mingw32-dll-0.tar" />
+        <requires le="mingw32-gcc-core-deps-%-mingw32-dll.meta" />
+        <requires le="mingw32-gcc-core-%-mingw32-dev.tar" />
+        <requires eq="mingw32-libgcc-%-mingw32-dll-1.tar" />
+        <release tarname="gcc-core-6.3.0-1-mingw32-bin.tar.xz">
+          <requires eq="libatomic-%-mingw32-dll-1.tar" />
+        </release>
+        <release tarname="gcc-core-5.3.0-3-mingw32-bin.tar.xz">
+          <requires eq="libatomic-%-mingw32-dll-1.tar" />
+        </release>
+        <release tarname="gcc-core-4.9.3-1-mingw32-bin.tar.xz" />
+        <release tarname="gcc-core-4.8.1-4-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-3-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-2-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-1-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-core-4.7.2-1-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-core-4.7.0-1-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-core-4.6.2-1-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-core-4.6.1-2-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-core-4.5.2-1-mingw32-bin.tar.lzma" />
+      </component>
+
+      <component class="dev" visibility="hidden">
+        <!-- FIXME: marked as hidden, because this component package is an  -->
+        <!-- aberration, which we would prefer to conceal from users.  Note -->
+        <!-- that mingw-get does not currently support this attribute, and  -->
+        <!-- should ignore it anyway for 4.8.1 releases, which aberrantly   -->
+        <!-- deliver installable content, so we also associate it with the  -->
+        <!-- the "GCC Upgrade Blockers" group, to facilitate location and   -->
+        <!-- removal, prior to performing an upgrade, with which they may   -->
+        <!-- interfere, (by the introduction of package conflicts).         -->
+        <affiliate group="GCC Upgrade Blockers" />
+        <description lang="en">
+          <paragraph>
+            NOTE: this component package exists, exclusively, to accommodate
+            packaging anomalies within the GCC-4.8.1 releases.  For any other
+            release, it is installed only to clean up any conflicts which may
+            arise due to a prior installation of GCC-4.8.1; for any such other
+            release, it delivers no content, and may be safely removed after
+            the installation, or upgrade, has been completed.
+          </paragraph>
+        </description>
+        <release tarname="gcc-core-4.8.2-mingw32-dev.tar.meta">
+          <!-- dummy package, to clean up possible 4.8.1 conflicts -->
+          <download tarname="none" />
+        </release>
+        <release tarname="gcc-core-4.8.1-4-mingw32-dev.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-3-mingw32-dev.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-2-mingw32-dev.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-1-mingw32-dev.tar.lzma" />
+        <release tarname="gcc-core-4.0-mingw32-dev.tar.meta">
+          <!-- dummy package, to clean up possible 4.8.1 conflicts -->
+          <download tarname="none" />
+        </release>
+      </component>
+
+      <component class="doc">
+        <release tarname="gcc-core-4.8.1-4-mingw32-doc.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-3-mingw32-doc.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-2-mingw32-doc.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-1-mingw32-doc.tar.lzma" />
+        <release tarname="gcc-4.7.2-1-mingw32-doc.tar.lzma" />
+        <release tarname="gcc-4.7.0-1-mingw32-doc.tar.lzma" />
+        <release tarname="gcc-4.6.2-1-mingw32-doc.tar.lzma" />
+        <release tarname="gcc-4.6.1-2-mingw32-doc.tar.lzma" />
+        <release tarname="gcc-4.5.2-1-mingw32-doc.tar.lzma" />
+      </component>
+
+      <component class="man">
+        <release tarname="gcc-6.3.0-1-mingw32-man.tar.xz" />
+        <release tarname="gcc-5.3.0-3-mingw32-man.tar.xz" />
+        <release tarname="gcc-5.3.0-2-mingw32-man.tar.xz" />
+        <release tarname="gcc-4.9.3-1-mingw32-man.tar.xz" />
+        <release tarname="gcc-core-4.8.1-4-mingw32-man.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-3-mingw32-man.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-2-mingw32-man.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-1-mingw32-man.tar.lzma" />
+      </component>
+
+      <component class="info">
+        <release tarname="gcc-6.3.0-1-mingw32-info.tar.xz" />
+        <release tarname="gcc-5.3.0-3-mingw32-info.tar.xz" />
+        <release tarname="gcc-5.3.0-2-mingw32-info.tar.xz" />
+        <release tarname="gcc-4.9.3-1-mingw32-info.tar.xz" />
+        <release tarname="gcc-core-4.8.1-4-mingw32-info.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-3-mingw32-info.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-2-mingw32-info.tar.lzma" />
+        <release tarname="gcc-core-4.8.1-1-mingw32-info.tar.lzma" />
+      </component>
+
+      <component class="lang">
+        <release tarname="gcc-6.3.0-1-mingw32-lang.tar.xz" />
+        <release tarname="gcc-5.3.0-3-mingw32-lang.tar.xz" />
+        <release tarname="gcc-5.3.0-2-mingw32-lang.tar.xz" />
+        <release tarname="gcc-4.9.3-1-mingw32-lang.tar.xz" />
+        <release tarname="gcc-4.8.1-4-mingw32-lang.tar.lzma" />
+        <release tarname="gcc-4.8.1-3-mingw32-lang.tar.lzma" />
+        <release tarname="gcc-4.8.1-2-mingw32-lang.tar.lzma" />
+        <release tarname="gcc-4.8.1-1-mingw32-lang.tar.lzma" />
+        <release tarname="gcc-4.7.2-1-mingw32-lang.tar.lzma" />
+        <release tarname="gcc-4.7.0-1-mingw32-lang.tar.lzma" />
+        <release tarname="gcc-4.6.2-1-mingw32-lang.tar.lzma" />
+        <release tarname="gcc-4.6.1-2-mingw32-lang.tar.lzma" />
+        <release tarname="gcc-4.5.2-1-mingw32-lang.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="mingw32-gcc-core-deps" class="virtual" visibility="hidden">
+      <!-- A convenience meta-package, to facilitate dependency resolution. -->
+      <!-- When mingw-get adds support for hidden virtual packages, this    -->
+      <!-- should become invisible to the user, and will not be recorded as -->
+      <!-- "installed"; until then, we would like users to remove it, after -->
+      <!-- completing any installation, or upgrade, so we associate it with -->
+      <!-- the "GCC Upgrade Blockers" group, to help them to locate it.     -->
+      <affiliate group="GCC Upgrade Blockers" />
+      <description lang="en" title="MinGW Compiler Suite DLL Prerequisites">
+        <paragraph>
+          Meta-data package, specifying variant DLL prerequisites for specific
+          versions of the GNU Compiler Suite.  Users are discouraged from making
+          any attempt to install this meta-data package explicitly; it may be
+          safely removed, after installation of the compiler suite.
+        </paragraph>
+      </description>
+      <component class="dll">
+        <release tarname="mingw32-gcc-core-deps-6.3.0-1-mingw32-dll.meta">
+          <requires eq="mingw32-libisl-*-mingw32-dll-15.tar" />
+          <requires eq="mingw32-libmpc-*-mingw32-dll-3.tar" />
+        </release>
+        <release tarname="mingw32-gcc-core-deps-4.8.1-3-mingw32-dll.meta">
+          <requires eq="mingw32-libmpc-*-mingw32-dll-3.tar" />
+        </release>
+        <release tarname="mingw32-gcc-core-deps-4.0-mingw32-dll.meta">
+          <requires eq="mingw32-libmpc-*-mingw32-dll-2.tar" />
+        </release>
+      </component>
+    </package>
+
+    <package name="mingw32-libgcc" alias="libgcc">
+      <affiliate group="MinGW Compiler Suite" />
+      <description lang="en" title="The GNU C Compiler Shared Runtime Library">
+        <paragraph>
+          This package provides the MinGW implementation of the
+          shared runtime library for the GNU C language compiler;
+          you must install it if you wish to use this compiler with
+          -shared-libgcc support enabled, or if you wish to use any
+          other GCC language compiler, and you require safe handling
+          of exceptions which may cross DLL boundaries.
+        </paragraph>
+        <paragraph>
+          This is a freely redistributable library; it is required by,
+          (and you must distribute it with), any application compiled
+          by the GNU C++ language compiler, unless support for shared
+          runtime libraries is explicitly disabled when building.
+        </paragraph>
+      </description>
+
+      <source tarname="gcc-%-mingw32-src.tar.*" />
+      <licence tarname="gcc-%-mingw32-lic.tar.*" />
+
+      <component class="dll">
+        <release tarname="libgcc-6.3.0-1-mingw32-dll-1.tar.xz" />
+        <release tarname="libgcc-5.3.0-3-mingw32-dll-1.tar.xz" />
+        <release tarname="libgcc-5.3.0-2-mingw32-dll-1.tar.xz" />
+        <release tarname="libgcc-4.9.3-1-mingw32-dll-1.tar.xz" />
+        <release tarname="libgcc-4.8.1-4-mingw32-dll-1.tar.lzma" />
+        <release tarname="libgcc-4.8.1-3-mingw32-dll-1.tar.lzma" />
+        <release tarname="libgcc-4.8.1-2-mingw32-dll-1.tar.lzma" />
+        <release tarname="libgcc-4.8.1-1-mingw32-dll-1.tar.lzma" />
+        <release tarname="libgcc-4.7.2-1-mingw32-dll-1.tar.lzma" />
+        <release tarname="libgcc-4.7.0-1-mingw32-dll-1.tar.lzma" />
+        <release tarname="libgcc-4.6.2-1-mingw32-dll-1.tar.lzma" />
+        <release tarname="libgcc-4.6.1-2-mingw32-dll-1.tar.lzma" />
+        <release tarname="libgcc-4.5.2-1-mingw32-dll-1.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="mingw32-gcc-ada" alias="gcc-ada ada">
+      <affiliate group="MinGW Compiler Suite" />
+      <description lang="en" title="The GNU Ada Compiler">
+        <paragraph>
+          This package provides the MinGW implementation of the
+          GNU Ada language compiler.
+        </paragraph>
+        <paragraph>
+          This is an optional component of the MinGW Compiler Suite;
+          you require it only if you wish to compile programs written
+          in the Ada language.
+        </paragraph>
+      </description>
+
+      <source tarname="gcc-%-mingw32-src.tar.*" />
+      <licence tarname="gcc-%-mingw32-lic.tar.*" />
+
+      <component class="bin">
+        <affiliate group="Basic Setup" />
+        <requires le="gcc-ada-%-mingw32-dev.tar" />
+        <requires eq="gcc-core-%-mingw32-bin.tar" />
+        <release tarname="gcc-ada-6.3.0-1-mingw32-bin.tar.xz" />
+        <release tarname="gcc-ada-5.3.0-3-mingw32-bin.tar.xz" />
+        <release tarname="gcc-ada-4.9.3-1-mingw32-bin.tar.xz" />
+        <release tarname="gcc-ada-4.8.1-4-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-ada-4.8.1-3-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-ada-4.8.1-2-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-ada-4.8.1-1-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-ada-4.7.2-1-mingw32-bin.tar.lzma">
+          <requires eq="libgnat-%-mingw32-dll-4_7.tar" />
+        </release>
+        <release tarname="gcc-ada-4.7.0-1-mingw32-bin.tar.lzma">
+          <requires eq="libgnat-%-mingw32-dll-4_7.tar" />
+        </release>
+        <release tarname="gcc-ada-4.6.2-1-mingw32-bin.tar.lzma">
+          <requires eq="libgnat-%-mingw32-dll-4_6.tar" />
+        </release>
+        <release tarname="gcc-ada-4.5.2-1-mingw32-bin.tar.lzma">
+          <requires eq="libgnat-%-mingw32-dll-4_5.tar" />
+        </release>
+      </component>
+
+      <component class="dev" visibility="hidden">
+        <!-- FIXME: marked as hidden, because this component package is an  -->
+        <!-- aberration, which we would prefer to conceal from users.  Note -->
+        <!-- that mingw-get does not currently support this attribute, and  -->
+        <!-- should ignore it anyway for 4.8.1 releases, which aberrantly   -->
+        <!-- deliver installable content, so we also associate it with the  -->
+        <!-- the "GCC Upgrade Blockers" group, to facilitate location and   -->
+        <!-- removal, prior to performing an upgrade, with which they may   -->
+        <!-- interfere, (by the introduction of package conflicts).         -->
+        <affiliate group="GCC Upgrade Blockers" />
+        <description lang="en">
+          <paragraph>
+            NOTE: this component package exists, exclusively, to accommodate
+            packaging anomalies within the GCC-4.8.1 releases.  For any other
+            release, it is installed only to clean up any conflicts which may
+            arise due to a prior installation of GCC-4.8.1; for any such other
+            release, it delivers no content, and may be safely removed after
+            the installation, or upgrade, has been completed.
+          </paragraph>
+        </description>
+        <release tarname="gcc-ada-4.8.2-mingw32-dev.tar.meta">
+          <!-- dummy package, to clean up possible 4.8.1 conflicts -->
+          <download tarname="none" />
+        </release>
+        <release tarname="gcc-ada-4.8.1-4-mingw32-dev.tar.lzma">
+          <requires eq="mingw32-libgnat-%-mingw32-dll.tar" />
+        </release>
+        <release tarname="gcc-ada-4.8.1-3-mingw32-dev.tar.lzma">
+          <requires eq="mingw32-libgnat-%-mingw32-dll.tar" />
+        </release>
+        <release tarname="gcc-ada-4.8.1-2-mingw32-dev.tar.lzma">
+          <requires eq="mingw32-libgnat-%-mingw32-dll.tar" />
+        </release>
+        <release tarname="gcc-ada-4.8.1-1-mingw32-dev.tar.lzma">
+          <requires eq="mingw32-libgnat-%-mingw32-dll.tar" />
+        </release>
+        <release tarname="gcc-ada-4.0-mingw32-dev.tar.meta">
+          <!-- dummy package, to clean up possible 4.8.1 conflicts -->
+          <download tarname="none" />
+        </release>
+      </component>
+
+      <component class="info">
+        <release tarname="gcc-ada-4.8.1-4-mingw32-info.tar.lzma" />
+        <release tarname="gcc-ada-4.8.1-3-mingw32-info.tar.lzma" />
+        <release tarname="gcc-ada-4.8.1-2-mingw32-info.tar.lzma" />
+        <release tarname="gcc-ada-4.8.1-1-mingw32-info.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="mingw32-libgnat" alias="libgnat">
+      <affiliate group="MinGW Compiler Suite" />
+      <description lang="en" title="The GNU Ada Compiler Runtime Library">
+        <paragraph>
+          This package provides the MinGW implementation of the
+          shared runtime library for the GNU Ada language compiler;
+          you must install it if you wish to use this compiler.
+        </paragraph>
+        <paragraph>
+          This is a freely redistributable library; it is required by,
+          (and you must distribute it with), any application compiled
+          by the GNU Ada language compiler, unless support for shared
+          runtime libraries is explicitly disabled when building.
+        </paragraph>
+        <paragraph>
+          NOTE: The gcc-4.8.1 release delivers this library in a tarball
+          named with the "gcc-ada" prefix, rather than "libgnat".  There
+          is (currently) no DLL component release of libgnat, for the
+          gcc-4.9.3 (or later) releases.
+        </paragraph>
+      </description>
+
+      <source tarname="gcc-%-mingw32-src.tar.*" />
+      <licence tarname="gcc-%-mingw32-lic.tar.*" />
+
+      <component class="dll">
+        <release tarname="libgnat-4.8.1-4-mingw32-dll-4_8.tar.lzma" />
+        <release tarname="libgnat-4.8.1-3-mingw32-dll-4_8.tar.lzma" />
+        <release tarname="libgnat-4.8.1-2-mingw32-dll-4_8.tar.lzma" />
+        <release tarname="libgnat-4.8.1-1-mingw32-dll-4_8.tar.lzma" />
+        <release tarname="libgnat-4.7.2-1-mingw32-dll-4_7.tar.lzma" />
+        <release tarname="libgnat-4.7.0-1-mingw32-dll-4_7.tar.lzma" />
+        <release tarname="libgnat-4.6.2-1-mingw32-dll-4_6.tar.lzma" />
+        <release tarname="libgnat-4.5.2-1-mingw32-dll-4_5.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="mingw32-gcc-g++" alias="gcc-g++ g++ gcc-c++ c++">
+      <affiliate group="MinGW Compiler Suite" />
+      <description lang="en" title="The GNU C++ Compiler">
+        <paragraph>
+          This package provides the MinGW implementation of the
+          GNU C++ language compiler.
+        </paragraph>
+        <paragraph>
+          This is an optional component of the MinGW Compiler Suite;
+          you require it only if you wish to compile programs written
+          in the C++ language.
+        </paragraph>
+      </description>
+
+      <source tarname="gcc-%-mingw32-src.tar.*" />
+      <licence tarname="gcc-%-mingw32-lic.tar.*" />
+
+      <component class="bin">
+        <affiliate group="Basic Setup" />
+        <requires le="gcc-c++-%-mingw32-dev.tar" />
+        <requires eq="gcc-core-%-mingw32-bin.tar" />
+        <requires eq="mingw32-libstdc++-%-mingw32-dll-6.tar" />
+        <release tarname="gcc-c++-6.3.0-1-mingw32-bin.tar.xz" />
+        <release tarname="gcc-c++-5.3.0-3-mingw32-bin.tar.xz" />
+        <release tarname="gcc-c++-5.3.0-2-mingw32-bin.tar.xz" />
+        <release tarname="gcc-c++-4.9.3-1-mingw32-bin.tar.xz" />
+        <release tarname="gcc-c++-4.8.1-4-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-c++-4.8.1-3-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-c++-4.8.1-2-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-c++-4.8.1-1-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-c++-4.7.2-1-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-c++-4.7.0-1-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-c++-4.6.2-1-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-c++-4.6.1-2-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-c++-4.5.2-1-mingw32-bin.tar.lzma" />
+      </component>
+
+      <component class="dev" visibility="hidden">
+        <!-- FIXME: marked as hidden, because this component package is an  -->
+        <!-- aberration, which we would prefer to conceal from users.  Note -->
+        <!-- that mingw-get does not currently support this attribute, and  -->
+        <!-- should ignore it anyway for 4.8.1 releases, which aberrantly   -->
+        <!-- deliver installable content, so we also associate it with the  -->
+        <!-- the "GCC Upgrade Blockers" group, to facilitate location and   -->
+        <!-- removal, prior to performing an upgrade, with which they may   -->
+        <!-- interfere, (by the introduction of package conflicts).         -->
+        <affiliate group="GCC Upgrade Blockers" />
+        <description lang="en">
+          <paragraph>
+            NOTE: this component package exists, exclusively, to accommodate
+            packaging anomalies within the GCC-4.8.1 releases.  For any other
+            release, it is installed only to clean up any conflicts which may
+            arise due to a prior installation of GCC-4.8.1; for any such other
+            release, it delivers no content, and may be safely removed after
+            the installation, or upgrade, has been completed.
+          </paragraph>
+        </description>
+        <release tarname="gcc-c++-4.8.2-mingw32-dev.tar.meta">
+          <!-- dummy package, to clean up possible 4.8.1 conflicts -->
+          <download tarname="none" />
+        </release>
+        <release tarname="gcc-c++-4.8.1-4-mingw32-dev.tar.lzma" />
+        <release tarname="gcc-c++-4.8.1-3-mingw32-dev.tar.lzma" />
+        <release tarname="gcc-c++-4.8.1-2-mingw32-dev.tar.lzma" />
+        <release tarname="gcc-c++-4.8.1-1-mingw32-dev.tar.lzma" />
+        <release tarname="gcc-c++-4.0-mingw32-dev.tar.meta">
+          <!-- dummy package, to clean up possible 4.8.1 conflicts -->
+          <download tarname="none" />
+        </release>
+      </component>
+
+      <component class="doc">
+        <release tarname="gcc-c++-4.8.1-4-mingw32-doc.tar.lzma" />
+        <release tarname="gcc-c++-4.8.1-3-mingw32-doc.tar.lzma" />
+        <release tarname="gcc-c++-4.8.1-2-mingw32-doc.tar.lzma" />
+        <release tarname="gcc-c++-4.8.1-1-mingw32-doc.tar.lzma" />
+      </component>
+
+      <component class="man">
+        <release tarname="gcc-c++-6.3.0-1-mingw32-man.tar.xz" />
+        <release tarname="gcc-c++-5.3.0-3-mingw32-man.tar.xz" />
+        <release tarname="gcc-c++-5.3.0-2-mingw32-man.tar.xz" />
+        <release tarname="gcc-c++-4.9.3-1-mingw32-man.tar.xz" />
+        <release tarname="gcc-c++-4.8.1-4-mingw32-man.tar.lzma" />
+        <release tarname="gcc-c++-4.8.1-3-mingw32-man.tar.lzma" />
+        <release tarname="gcc-c++-4.8.1-2-mingw32-man.tar.lzma" />
+        <release tarname="gcc-c++-4.8.1-1-mingw32-man.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="mingw32-libstdc++" alias="libstdc++">
+      <affiliate group="MinGW Compiler Suite" />
+      <description lang="en" title="The GNU C++ Compiler Runtime Library">
+        <paragraph>
+          This package provides the MinGW implementation of the
+          shared runtime library for the GNU C++ language compiler;
+          you must install it if you wish to use this compiler.
+        </paragraph>
+        <paragraph>
+          This is a freely redistributable library; it is required by,
+          (and you must distribute it with), any application compiled
+          by the GNU C++ language compiler, unless support for shared
+          runtime libraries is explicitly disabled when building.
+        </paragraph>
+        <paragraph>
+          NOTE: The gcc-4.8.1 release delivers this library in a tarball
+          named with the "gcc-c++" prefix, rather than "libstdc++".
+        </paragraph>
+      </description>
+
+      <source tarname="gcc-%-mingw32-src.tar.*" />
+      <licence tarname="gcc-%-mingw32-lic.tar.*" />
+
+      <component class="dll">
+        <release tarname="libstdc++-6.3.0-1-mingw32-dll-6.tar.xz" />
+        <release tarname="libstdc++-5.3.0-3-mingw32-dll-6.tar.xz" />
+        <release tarname="libstdc++-5.3.0-2-mingw32-dll-6.tar.xz" />
+        <release tarname="libstdc++-4.9.3-1-mingw32-dll-6.tar.xz" />
+        <release tarname="libstdc++-4.8.1-4-mingw32-dll-6.tar.lzma" />
+        <release tarname="libstdc++-4.8.1-3-mingw32-dll-6.tar.lzma" />
+        <release tarname="libstdc++-4.8.1-2-mingw32-dll-6.tar.lzma" />
+        <release tarname="libstdc++-4.8.1-1-mingw32-dll-6.tar.lzma" />
+        <release tarname="libstdc++-4.7.2-1-mingw32-dll-6.tar.lzma" />
+        <release tarname="libstdc++-4.7.0-1-mingw32-dll-6.tar.lzma" />
+        <release tarname="libstdc++-4.6.2-1-mingw32-dll-6.tar.lzma" />
+        <release tarname="libstdc++-4.6.1-2-mingw32-dll-6.tar.lzma" />
+        <release tarname="libstdc++-4.5.2-1-mingw32-dll-6.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="mingw32-gcc-fortran" alias="gcc-fortran gfortran fortran">
+      <affiliate group="MinGW Compiler Suite" />
+      <description lang="en" title="The GNU FORTRAN Compiler">
+        <paragraph>
+          This package provides the MinGW implementation of the
+          GNU FORTRAN language compiler.
+        </paragraph>
+        <paragraph>
+          This is an optional component of the MinGW Compiler Suite;
+          you require it only if you wish to compile programs written
+          in the FORTRAN language.
+        </paragraph>
+      </description>
+
+      <source tarname="gcc-%-mingw32-src.tar.*" />
+      <licence tarname="gcc-%-mingw32-lic.tar.*" />
+
+      <component class="bin">
+        <affiliate group="Basic Setup" />
+        <requires eq="gcc-core-%-mingw32-bin.tar" />
+        <requires le="gcc-fortran-%-mingw32-dev.tar" />
+        <requires eq="libgfortran-%-mingw32-dll-3.tar" />
+        <release tarname="gcc-fortran-6.3.0-1-mingw32-bin.tar.xz" />
+        <release tarname="gcc-fortran-5.3.0-3-mingw32-bin.tar.xz" />
+        <release tarname="gcc-fortran-5.3.0-2-mingw32-bin.tar.xz" />
+        <release tarname="gcc-fortran-4.9.3-1-mingw32-bin.tar.xz" />
+        <release tarname="gcc-fortran-4.8.1-4-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-3-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-2-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-1-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-fortran-4.7.2-1-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-fortran-4.7.0-1-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-fortran-4.6.2-1-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-fortran-4.6.1-2-mingw32-bin.tar.lzma" />
+        <release tarname="gcc-fortran-4.5.2-1-mingw32-bin.tar.lzma" />
+      </component>
+
+      <component class="dev" visibility="hidden">
+        <!-- FIXME: marked as hidden, because this component package is an  -->
+        <!-- aberration, which we would prefer to conceal from users.  Note -->
+        <!-- that mingw-get does not currently support this attribute, and  -->
+        <!-- should ignore it anyway for 4.8.1 releases, which aberrantly   -->
+        <!-- deliver installable content, so we also associate it with the  -->
+        <!-- the "GCC Upgrade Blockers" group, to facilitate location and   -->
+        <!-- removal, prior to performing an upgrade, with which they may   -->
+        <!-- interfere, (by the introduction of package conflicts).         -->
+        <affiliate group="GCC Upgrade Blockers" />
+        <description lang="en">
+          <paragraph>
+            NOTE: this component package exists, exclusively, to accommodate
+            packaging anomalies within the GCC-4.8.1 releases.  For any other
+            release, it is installed only to clean up any conflicts which may
+            arise due to a prior installation of GCC-4.8.1; for any such other
+            release, it delivers no content, and may be safely removed after
+            the installation, or upgrade, has been completed.
+          </paragraph>
+        </description>
+        <release tarname="gcc-fortran-4.8.2-mingw32-dev.tar.meta">
+          <!-- dummy package, to clean up possible 4.8.1 conflicts -->
+          <download tarname="none" />
+        </release>
+        <release tarname="gcc-fortran-4.8.1-4-mingw32-dev.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-3-mingw32-dev.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-2-mingw32-dev.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-1-mingw32-dev.tar.lzma" />
+        <release tarname="gcc-fortran-4.0-mingw32-dev.tar.meta">
+          <!-- dummy package, to clean up possible 4.8.1 conflicts -->
+          <download tarname="none" />
+        </release>
+      </component>
+
+      <component class="doc">
+        <release tarname="gcc-fortran-4.8.1-4-mingw32-doc.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-3-mingw32-doc.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-2-mingw32-doc.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-1-mingw32-doc.tar.lzma" />
+      </component>
+
+      <component class="info">
+        <release tarname="gcc-fortran-6.3.0-1-mingw32-info.tar.xz" />
+        <release tarname="gcc-fortran-5.3.0-3-mingw32-info.tar.xz" />
+        <release tarname="gcc-fortran-5.3.0-2-mingw32-info.tar.xz" />
+        <release tarname="gcc-fortran-4.9.3-1-mingw32-info.tar.xz" />
+        <release tarname="gcc-fortran-4.8.1-4-mingw32-info.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-3-mingw32-info.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-2-mingw32-info.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-1-mingw32-info.tar.lzma" />
+      </component>
+
+      <component class="man">
+        <release tarname="gcc-fortran-6.3.0-1-mingw32-man.tar.xz" />
+        <release tarname="gcc-fortran-5.3.0-3-mingw32-man.tar.xz" />
+        <release tarname="gcc-fortran-5.3.0-2-mingw32-man.tar.xz" />
+        <release tarname="gcc-fortran-4.9.3-1-mingw32-man.tar.xz" />
+        <release tarname="gcc-fortran-4.8.1-4-mingw32-man.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-3-mingw32-man.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-2-mingw32-man.tar.lzma" />
+        <release tarname="gcc-fortran-4.8.1-1-mingw32-man.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="mingw32-libgfortran" alias="libgfortran">
+      <affiliate group="MinGW Compiler Suite" />
+      <description lang="en" title="The GNU FORTRAN Compiler Runtime Library">
+        <paragraph>
+          This package provides the MinGW implementation of the
+          shared runtime library for the GNU FORTRAN language compiler;
+          you must install it if you wish to use this compiler.
+        </paragraph>
+        <paragraph>
+          This is a freely redistributable library; it is required by,
+          (and you must distribute it with), any application compiled by
+          the GNU FORTRAN language compiler, unless support for shared
+          runtime libraries is explicitly disabled when building.
+        </paragraph>
+      </description>
+
+      <source tarname="gcc-%-mingw32-src.tar.*" />
+      <licence tarname="gcc-%-mingw32-lic.tar.*" />
+
+      <component class="dll">
+        <requires eq="mingw32-libgcc-%-mingw32-dll-1.tar" />
+        <requires eq="mingw32-libquadmath-%-mingw32-dll-0.tar" />
+        <release tarname="libgfortran-6.3.0-1-mingw32-dll-3.tar.xz" />
+        <release tarname="libgfortran-5.3.0-3-mingw32-dll-3.tar.xz" />
+        <release tarname="libgfortran-5.3.0-2-mingw32-dll-3.tar.xz" />
+        <release tarname="libgfortran-4.9.3-1-mingw32-dll-3.tar.xz" />
+        <release tarname="libgfortran-4.8.1-4-mingw32-dll-3.tar.lzma" />
+        <release tarname="libgfortran-4.8.1-3-mingw32-dll-3.tar.lzma" />
+        <release tarname="libgfortran-4.8.1-2-mingw32-dll-3.tar.lzma" />
+        <release tarname="libgfortran-4.8.1-1-mingw32-dll-3.tar.lzma" />
+        <release tarname="libgfortran-4.7.2-1-mingw32-dll-3.tar.lzma" />
+        <release tarname="libgfortran-4.7.0-1-mingw32-dll-3.tar.lzma" />
+        <release tarname="libgfortran-4.6.2-1-mingw32-dll-3.tar.lzma" />
+        <release tarname="libgfortran-4.6.1-2-mingw32-dll-3.tar.lzma" />
+        <release tarname="libgfortran-4.5.2-1-mingw32-dll-3.tar.lzma" />
+      </component>
+    </package>
+
+    <!-- FIXME: no java package available at present...
+    <package name="mingw32-gcc-java" alias="gcc-java java">
+      <affiliate group="MinGW Compiler Suite" />
+      <description lang="en" title="The GNU Java Compiler">
+        <paragraph>
+          This package provides the MinGW implementation of the
+          GNU Java language compiler.
+        </paragraph>
+        <paragraph>
+          This is an optional component of the MinGW Compiler Suite;
+          you require it only if you wish to compile programs written
+          in the Java language.
+        </paragraph>
+      </description>
+
+      <source tarname="gcc-%-mingw32-src.tar.lzma" />
+      <licence tarname="gcc-%-mingw32-lic.tar.lzma" />
+
+      <component class="bin">
+        <requires eq="gcc-core-%-mingw32-bin.tar" />
+        <release tarname="gcc-java-4.5.2-1-mingw32-bin.tar.lzma" />
+      </component>
+    </package> -->
+
+    <package name="mingw32-gcc-objc" alias="gcc-objc objc">
+      <affiliate group="MinGW Compiler Suite" />
+      <description lang="en" title="The GNU Objective-C Compiler">
+        <paragraph>
+          This package provides the MinGW implementation of the
+          GNU Objective-C language compiler.
+        </paragraph>
+        <paragraph>
+          This is an optional component of the MinGW Compiler Suite;
+          you require it only if you wish to compile programs written
+          in the Objective-C language.
+        </paragraph>
+        <paragraph>
+          NOTE: For the gcc-4.8.1, release in order to install objc you need
+          to install the gcc-objc-%-mingw32-dev package instead of the -bin
+          package.  This change was made to be consistent with what -bin usually
+          contains compared to -dev.  In reality, this release simply created
+          the -dev package as a hybrid of content which would normally be
+          distributed as separate -bin and -dev packages, whereas earlier
+          releases provided the -bin package as such a hybrid.  This change
+          added an unnecessary level of package complexity; it has been
+          reverted for the gcc-4.9.3 release.
+        </paragraph>
+      </description>
+
+      <source tarname="gcc-%-mingw32-src.tar.*" />
+      <licence tarname="gcc-%-mingw32-lic.tar.*" />
+
+      <component class="bin">
+        <affiliate group="Basic Setup" />
+        <requires eq="gcc-core-%-mingw32-bin.tar" />
+        <requires le="gcc-objc-%-mingw32-dev.tar" />
+        <!-- FIXME: is there a way to avoid per-release specification -->
+        <!-- of libobjc DLL dependencies, preserving ABI evolution?   -->
+        <release tarname="gcc-objc-6.3.0-1-mingw32-bin.tar.xz">
+          <requires eq="libobjc-%-mingw32-dll-4.tar" />
+        </release>
+        <release tarname="gcc-objc-5.3.0-3-mingw32-bin.tar.xz">
+          <requires eq="libobjc-%-mingw32-dll-4.tar" />
+        </release>
+        <release tarname="gcc-objc-5.3.0-2-mingw32-bin.tar.xz">
+          <requires eq="libobjc-%-mingw32-dll-4.tar" />
+        </release>
+        <release tarname="gcc-objc-4.9.3-1-mingw32-bin.tar.xz">
+          <requires eq="libobjc-%-mingw32-dll-4.tar" />
+        </release>
+        <release tarname="gcc-objc-4.8.1-4-mingw32-bin.tar" >
+          <requires eq="libobjc-%-mingw32-dll-4.tar" />
+          <download tarname="none" />
+        </release>
+        <release tarname="gcc-objc-4.8.1-3-mingw32-bin.tar" >
+          <requires eq="libobjc-%-mingw32-dll-4.tar" />
+          <download tarname="none" />
+        </release>
+        <release tarname="gcc-objc-4.8.1-2-mingw32-bin.tar" >
+          <requires eq="libobjc-%-mingw32-dll-4.tar" />
+          <download tarname="none" />
+        </release>
+        <release tarname="gcc-objc-4.8.1-1-mingw32-bin.tar" >
+          <requires eq="libobjc-%-mingw32-dll-4.tar" />
+          <download tarname="none" />
+        </release>
+        <release tarname="gcc-objc-4.7.2-1-mingw32-bin.tar.lzma">
+          <requires eq="libobjc-%-mingw32-dll-4.tar" />
+        </release>
+        <release tarname="gcc-objc-4.7.0-1-mingw32-bin.tar.lzma">
+          <requires eq="libobjc-%-mingw32-dll-4.tar" />
+        </release>
+        <release tarname="gcc-objc-4.6.2-1-mingw32-bin.tar.lzma">
+          <requires eq="libobjc-%-mingw32-dll-3.tar" />
+        </release>
+        <release tarname="gcc-objc-4.6.1-2-mingw32-bin.tar.lzma">
+          <requires eq="libobjc-%-mingw32-dll-3.tar" />
+        </release>
+        <release tarname="gcc-objc-4.5.2-1-mingw32-bin.tar.lzma">
+          <requires eq="libobjc-%-mingw32-dll-2.tar" />
+        </release>
+      </component>
+
+      <component class="dev" visibility="hidden">
+        <!-- FIXME: marked as hidden, because this component package is an  -->
+        <!-- aberration, which we would prefer to conceal from users.  Note -->
+        <!-- that mingw-get does not currently support this attribute, and  -->
+        <!-- should ignore it anyway for 4.8.1 releases, which aberrantly   -->
+        <!-- deliver installable content, so we also associate it with the  -->
+        <!-- the "GCC Upgrade Blockers" group, to facilitate location and   -->
+        <!-- removal, prior to performing an upgrade, with which they may   -->
+        <!-- interfere, (by the introduction of package conflicts).         -->
+        <affiliate group="GCC Upgrade Blockers" />
+        <description lang="en">
+          <paragraph>
+            NOTE: this component package exists, exclusively, to accommodate
+            packaging anomalies within the GCC-4.8.1 releases.  For any other
+            release, it is installed only to clean up any conflicts which may
+            arise due to a prior installation of GCC-4.8.1; for any such other
+            release, it delivers no content, and may be safely removed after
+            the installation, or upgrade, has been completed.
+          </paragraph>
+        </description>
+        <release tarname="gcc-objc-4.8.2-mingw32-dev.tar.meta">
+          <!-- dummy package, to clean up possible 4.8.1 conflicts -->
+          <download tarname="none" />
+        </release>
+        <release tarname="gcc-objc-4.8.1-4-mingw32-dev.tar.lzma">
+          <requires eq="libobjc-%-mingw32-dll-4.tar" />
+        </release>
+        <release tarname="gcc-objc-4.8.1-3-mingw32-dev.tar.lzma">
+          <requires eq="libobjc-%-mingw32-dll-4.tar" />
+        </release>
+        <release tarname="gcc-objc-4.8.1-2-mingw32-dev.tar.lzma">
+          <requires eq="libobjc-%-mingw32-dll-4.tar" />
+        </release>
+        <release tarname="gcc-objc-4.8.1-1-mingw32-dev.tar.lzma">
+          <requires eq="libobjc-%-mingw32-dll-4.tar" />
+        </release>
+        <release tarname="gcc-objc-4.0-mingw32-dev.tar.meta">
+          <!-- dummy package, to clean up possible 4.8.1 conflicts -->
+          <download tarname="none" />
+        </release>
+      </component>
+    </package>
+
+    <package name="mingw32-libobjc" alias="libobjc">
+      <affiliate group="MinGW Compiler Suite" />
+      <description lang="en" title="The GNU Objective-C Compiler Runtime Library">
+        <paragraph>
+          This package provides the MinGW implementation of the shared
+          runtime library for the GNU Objective-C language compiler; you
+          must install it if you wish to use this compiler.
+        </paragraph>
+        <paragraph>
+          This is a freely redistributable library; it is required by,
+          (and you must distribute it with), any application compiled by
+          the GNU Objective-C language compiler, unless support for shared
+          runtime libraries is explicitly disabled when building.
+        </paragraph>
+      </description>
+
+      <source tarname="gcc-%-mingw32-src.tar.*" />
+      <licence tarname="gcc-%-mingw32-lic.tar.*" />
+
+      <component class="dll">
+        <requires eq="mingw32-libgcc-%-mingw32-dll-1.tar" />
+        <release tarname="libobjc-6.3.0-1-mingw32-dll-4.tar.xz" />
+        <release tarname="libobjc-5.3.0-3-mingw32-dll-4.tar.xz" />
+        <release tarname="libobjc-5.3.0-2-mingw32-dll-4.tar.xz" />
+        <release tarname="libobjc-4.9.3-1-mingw32-dll-4.tar.xz" />
+        <release tarname="libobjc-4.8.1-1-mingw32-dll-4.tar.lzma" />
+        <release tarname="libobjc-4.8.1-2-mingw32-dll-4.tar.lzma" />
+        <release tarname="libobjc-4.8.1-3-mingw32-dll-4.tar.lzma" />
+        <release tarname="libobjc-4.8.1-4-mingw32-dll-4.tar.lzma" />
+        <release tarname="libobjc-4.7.2-1-mingw32-dll-4.tar.lzma" />
+        <release tarname="libobjc-4.7.0-1-mingw32-dll-4.tar.lzma" />
+        <release tarname="libobjc-4.6.2-1-mingw32-dll-3.tar.lzma" />
+        <release tarname="libobjc-4.6.1-2-mingw32-dll-3.tar.lzma" />
+        <release tarname="libobjc-4.5.2-1-mingw32-dll-2.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="mingw32-libatomic" alias="libatomic">
+      <affiliate group="MinGW Compiler Suite" />
+      <description lang="en" title="GCC Atomic Function Support Library">
+        <paragraph>
+          This package provides the GCC support library for atomic
+          operations which are not directly supported by hardware;
+          it is a required component of GCC compiler installations,
+          from GCC-5.3 onwards.
+        </paragraph>
+      </description>
+
+      <source tarname="gcc-%-mingw32-src.tar.*" />
+      <licence tarname="gcc-%-mingw32-lic.tar.*" />
+
+      <component class="dll">
+        <release tarname="libatomic-6.3.0-1-mingw32-dll-1.tar.xz" />
+        <release tarname="libatomic-5.3.0-3-mingw32-dll-1.tar.xz" />
+        <release tarname="libatomic-5.3.0-2-mingw32-dll-1.tar.xz" />
+      </component>
+    </package>
+
+    <package name="mingw32-libgomp" alias="libgomp">
+      <affiliate group="MinGW Compiler Suite" />
+      <description lang="en" title="GCC MultiProcessor Support Library">
+        <paragraph>
+          This package provides the GNU implementation of the OpenMP API;
+          it is a required component of GCC compiler installations, if it
+          is desired to support multi-processor parallel programming in
+          C, C++, or FORTRAN programming languages.
+        </paragraph>
+      </description>
+
+      <source tarname="gcc-%-mingw32-src.tar.*" />
+      <licence tarname="gcc-%-mingw32-lic.tar.*" />
+
+      <component class="dll">
+        <requires eq="mingw32-libgcc-%-mingw32-dll-1.tar" />
+        <requires le="mingw32-libgomp-deps-%-mingw32-dll.tar" />
+        <release tarname="libgomp-6.3.0-1-mingw32-dll-1.tar.xz" />
+        <release tarname="libgomp-5.3.0-3-mingw32-dll-1.tar.xz" />
+        <release tarname="libgomp-5.3.0-2-mingw32-dll-1.tar.xz" />
+        <release tarname="libgomp-4.8.1-4-mingw32-dll-1.tar">
+          <download tarname="none" /><!-- anomaly: no separate package -->
+        </release>
+        <release tarname="libgomp-4.8.1-3-mingw32-dll-1.tar">
+          <download tarname="none" /><!-- anomaly: no separate package -->
+        </release>
+        <release tarname="libgomp-4.8.1-2-mingw32-dll-1.tar">
+          <download tarname="none" /><!-- anomaly: no separate package -->
+        </release>
+        <release tarname="libgomp-4.8.1-1-mingw32-dll-1.tar">
+          <download tarname="none" /><!-- anomaly: no separate package -->
+        </release>
+        <release tarname="libgomp-4.7.2-1-mingw32-dll-1.tar.lzma" />
+        <release tarname="libgomp-4.7.0-1-mingw32-dll-1.tar.lzma" />
+        <release tarname="libgomp-4.6.2-1-mingw32-dll-1.tar.lzma" />
+        <release tarname="libgomp-4.6.1-2-mingw32-dll-1.tar.lzma" />
+        <release tarname="libgomp-4.5.2-1-mingw32-dll-1.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="mingw32-libgomp-deps" class="virtual" visibility="hidden">
+      <!-- A convenience meta-package, to facilitate dependency resolution. -->
+      <!-- When mingw-get adds support for hidden virtual packages, this    -->
+      <!-- should become invisible to the user, and will not be recorded as -->
+      <!-- "installed"; until then, we would like users to remove it, after -->
+      <!-- completing any installation, or upgrade, so we associate it with -->
+      <!-- the "GCC Upgrade Blockers" group, to help them to locate it.     -->
+      <affiliate group="GCC Upgrade Blockers" />
+      <description lang="en" title="MinGW Compiler Suite DLL Prerequisites">
+        <paragraph>
+          Meta-data package, specifying variant DLL prerequisites for specific
+          versions of the GNU Compiler Suite.  Users are discouraged from making
+          any attempt to install this meta-data package explicitly; it may be
+          safely removed, after installation of the compiler suite.
+        </paragraph>
+      </description>
+      <component class="dll">
+        <release tarname="mingw32-libgomp-deps-5.3.0-mingw32-dll.meta">
+          <requires eq="libpthread-*-mingw32-*-dll-3.tar" />
+        </release>
+        <release tarname="mingw32-libgomp-deps-4.9.0-mingw32-dll.meta" />
+        <release tarname="mingw32-gcc-deps-4.0-mingw32-dll.meta">
+          <requires eq="libpthread-*-mingw32-*-dll-2.tar" />
+        </release>
+      </component>
+    </package>
+
+    <package name="mingw32-libssp" alias="libssp">
+      <affiliate group="MinGW Compiler Suite" />
+      <description lang="en" title="GCC Stack Smashing Protection Library">
+        <paragraph>
+          This package provides support against stack smashing attacks,
+          e.g. when compiling with GCC's -fstack-protector option.
+        </paragraph>
+      </description>
+
+      <source tarname="gcc-%-mingw32-src.tar.*" />
+      <licence tarname="gcc-%-mingw32-lic.tar.*" />
+
+      <component class="dll">
+        <release tarname="libssp-6.3.0-1-mingw32-dll-0.tar.xz" />
+        <release tarname="libssp-5.3.0-3-mingw32-dll-0.tar.xz" />
+        <release tarname="libssp-5.3.0-2-mingw32-dll-0.tar.xz" />
+        <release tarname="libssp-4.8.1-4-mingw32-dll-0.tar" >
+          <download tarname="none" /><!-- anomaly: no separate package -->
+          <requires eq="mingw32-libgcc-%-mingw32-dll-1.tar" />
+        </release>
+        <release tarname="libssp-4.8.1-3-mingw32-dll-0.tar" >
+          <download tarname="none" /><!-- anomaly: no separate package -->
+          <requires eq="mingw32-libgcc-%-mingw32-dll-1.tar" />
+        </release>
+        <release tarname="libssp-4.8.1-2-mingw32-dll-0.tar" >
+          <download tarname="none" /><!-- anomaly: no separate package -->
+          <requires eq="mingw32-libgcc-%-mingw32-dll-1.tar" />
+        </release>
+        <release tarname="libssp-4.8.1-1-mingw32-dll-0.tar" >
+          <download tarname="none" /><!-- anomaly: no separate package -->
+          <requires eq="mingw32-libgcc-%-mingw32-dll-1.tar" />
+        </release>
+        <release tarname="libssp-4.7.2-1-mingw32-dll-0.tar.lzma" />
+        <release tarname="libssp-4.7.0-1-mingw32-dll-0.tar.lzma" />
+        <release tarname="libssp-4.6.2-1-mingw32-dll-0.tar.lzma" />
+        <release tarname="libssp-4.6.1-2-mingw32-dll-0.tar.lzma" />
+        <release tarname="libssp-4.5.2-1-mingw32-dll-0.tar.lzma" />
+      </component>
+    </package>
+
+    <package name="mingw32-libquadmath" alias="libquadmath">
+      <affiliate group="MinGW Compiler Suite" />
+
+      <source tarname="gcc-%-mingw32-src.tar.*" />
+      <licence tarname="gcc-%-mingw32-lic.tar.*" />
+
+      <component class="dll">
+        <requires eq="mingw32-libgcc-%-mingw32-dll-1.tar"/>
+        <release tarname="libquadmath-6.3.0-1-mingw32-dll-0.tar.xz" />
+        <release tarname="libquadmath-5.3.0-3-mingw32-dll-0.tar.xz" />
+        <release tarname="libquadmath-5.3.0-2-mingw32-dll-0.tar.xz" />
+        <release tarname="libquadmath-4.9.3-1-mingw32-dll-0.tar.xz" />
+        <release tarname="libquadmath-4.8.1-4-mingw32-dll-0.tar" >
+          <download tarname="none" /><!-- anomaly: no separate package -->
+        </release>
+        <release tarname="libquadmath-4.8.1-3-mingw32-dll-0.tar" >
+          <download tarname="none" /><!-- anomaly: no separate package -->
+        </release>
+        <release tarname="libquadmath-4.8.1-2-mingw32-dll-0.tar" >
+          <download tarname="none" /><!-- anomaly: no separate package -->
+        </release>
+        <release tarname="libquadmath-4.8.1-1-mingw32-dll-0.tar" >
+          <download tarname="none" /><!-- anomaly: no separate package -->
+        </release>
+        <release tarname="libquadmath-4.7.2-1-mingw32-dll-0.tar.lzma" />
+        <release tarname="libquadmath-4.7.0-1-mingw32-dll-0.tar.lzma" />
+        <release tarname="libquadmath-4.6.2-1-mingw32-dll-0.tar.lzma" />
+        <release tarname="libquadmath-4.6.1-2-mingw32-dll-0.tar.lzma" />
+        <release tarname="libquadmath-4.5.2-1-mingw32-dll-0.tar">
+          <download tarname="none" /><!-- not introduced until GCC-4.6 -->
+        </release>
+      </component>
+
+      <component class="info">
+        <release tarname="libquadmath-6.3.0-1-mingw32-info.tar.xz" />
+        <release tarname="libquadmath-5.3.0-3-mingw32-info.tar.xz" />
+        <release tarname="libquadmath-5.3.0-2-mingw32-info.tar.xz" />
+        <release tarname="libquadmath-4.9.3-1-mingw32-info.tar.xz" />
+      </component>
+    </package>
+
+  </package-collection>
+</software-distribution>
+
+<!-- vim: set textwidth=80 tabstop=2 shiftwidth=2 expandtab: -->
+<!-- vim: set fileformat=unix nocompatible: -->
