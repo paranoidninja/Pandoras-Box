@@ -1,15 +1,14 @@
-/*Author : Paranoid Ninja*/
-/*Email  : paranoidninja@protonmail.com*/
-/*Descr  : Quick Shellcode test*/
+//int(*ret)() ###declares a function pointer named ret; the function takes unspecified arguments and returns an integer.
+//(int(*)())shellcode ###Converts the address of the shellcode array to a function pointer, which then allows you to call it and execute the shellcode.
+//ret() ###Executes the function with the shellcode
 
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
 
-unsigned char code[] = \
-"Insert SHELLCODE Here";
+unsigned char shellcode[] = "";
 
 main() {
-	printf("Shellcode Length: %d\n", strlen(code));
-	int (*ret)() = (int(*)())code;
-	ret();
+        printf("Shellcode length: %d\n", strlen(shellcode));
+        int (*ret)() = (int(*)())shellcode;
+        ret();
 }
